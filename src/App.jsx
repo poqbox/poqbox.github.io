@@ -16,7 +16,7 @@ export default function App() {
     <div id='homepage'>
       <header>
         <TypedText
-          text="Hi, I'm a box"
+          text="Hi, I'm Kevin"
           style={{
             fontSize: "80px",
             fontWeight: "bold"
