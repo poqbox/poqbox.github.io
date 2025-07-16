@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 
-export default function TypedText({text, style=null, base_speed=120, skip_space=false, puase_before=[","], pause_duration=800}) {
+export default function TypedText({text, style=null, base_speed=120, skip_space=false, pause_before=[","], pause_duration=800}) {
   const [FullText, setFullText] = useState(text)
   const [DisplayText, setDisplayText] = useState({text: "", intervalId: undefined})
   const [BaseSpeed, setBaseSpeed] = useState(base_speed)
@@ -32,7 +32,7 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
       let next_char = FullText[textP.current]
 
       // extra timings
-      if (puase_before.includes(next_char)) {
+      if (pause_before.includes(next_char)) {
         pauseBeforeUpdateTypedText()
         clearInterval(DisplayText.intervalId)
         return DisplayText
