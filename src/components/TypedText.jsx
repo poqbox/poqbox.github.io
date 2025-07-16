@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react"
 
 export default function TypedText({text, style=null, base_speed=120, skip_space=false, pause_before=[","], pause_duration=800, typing_delay=0, use_text_cursor=true}) {
   // format input arguments
-  const style_original = {...style, fontFamily: "inherit", display: "inline-block", margin: 0}
+  const style_original = {...style, fontFamily: "inherit", display: "inline-block", margin: 0, maxWidth: "100%", overflow: "scroll hidden", scrollbarWidth: "none"}
 
   // React objects
   const [FullText, setFullText] = useState(text)
