@@ -18,11 +18,14 @@ export default function App() {
         <TypedText
           text="Hi, I'm Kevin"
           style={{
+            position: "absolute",
             fontSize: "80px",
-            fontWeight: "bold"
+            fontWeight: "bold",
+            height: "1.3em"
           }}
           typing_delay={4000}
         />
+        <div style={{height: "120px"}}></div>
       </header>
       <div className='about-me'></div>
       <nav>
