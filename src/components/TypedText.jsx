@@ -1,16 +1,64 @@
 import { useState, useEffect, useRef } from "react"
 
-export default function TypedText({text, style=null, base_speed=120, skip_space=false, pause_before=[","], pause_duration=800}) {
+export default function TypedText({text, style=null, base_speed=120, skip_space=false, pause_before=[","], pause_duration=800, typing_delay=0, use_text_cursor=true}) {
+  // format input arguments
+  const style_original = {...style, display: "inline-block", margin: 0, fontFamily: "inherit"}
+
+  // React objects
   const [FullText, setFullText] = useState(text)
   const [DisplayText, setDisplayText] = useState({text: "", intervalId: undefined})
+  const [Style, setStyle] = useState({...style_original, original: style_original})
   const [BaseSpeed, setBaseSpeed] = useState(base_speed)
   const [PauseDuration, setPauseDuration] = useState(pause_duration)
+  const [TextCursor, setTextCursor] = useState({use: use_text_cursor, intervalId: undefined, timeoutId: undefined, clearTimingEvents: function() {clearInterval(this.intervalId); clearTimeout(this.timeoutId)}, iteration: 0})
   const textP = useRef(0)
+  const textCursorStyle = useRef({borderRight: "4px solid"})
 
+
+  // initial useEffect
   useEffect(() => {
-    setNewInterval()
+    // start TypedText updates
+    setTimeout(() => {
+      setNewInterval()
+    }, typing_delay)
   }, [])
 
+  // useEffect for text updates
+  useEffect(() => {
+    // TextCursor updates
+    if (TextCursor.use) {
+
+      // apply the initial TextCursor state
+      if (TextCursor.intervalId) {
+        setStyle(() => {
+          return {...Style, ...textCursorStyle.current}
+        })
+      }
+      TextCursor.clearTimingEvents()
+      TextCursor.iteration = 0
+
+      // start a new interval for TextCursor
+      TextCursor.intervalId = setInterval(() => {
+        setStyle(Style.original)
+        TextCursor.timeoutId = setTimeout(() => {
+          setStyle(() => {
+            return {...Style, ...textCursorStyle.current}
+          })
+        }, 550)
+
+        // conditions for stopping TextCursor's animation
+        TextCursor.iteration++
+        if (TextCursor.iteration > 3) {
+          TextCursor.clearTimingEvents()
+          setStyle(Style.original)
+        }
+        console.log(TextCursor.iteration)
+      }, 1100)
+    }
+  }, [DisplayText])
+
+
+  // functions for updating TypedText
   function setNewInterval() {
     DisplayText.intervalId = setInterval(() => {
       (textP.current !== FullText.length)
@@ -62,7 +110,9 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
     }, PauseDuration)
   }
 
-  return <div style={style}>
+
+  // return the React component
+  return <pre className="TypedText" style={Style}>
     {DisplayText.text}
-  </div>
+  </pre>
 }

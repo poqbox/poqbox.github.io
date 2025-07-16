@@ -21,6 +21,7 @@ export default function App() {
             fontSize: "80px",
             fontWeight: "bold"
           }}
+          typing_delay={4000}
         />
       </header>
       <div className='about-me'></div>
