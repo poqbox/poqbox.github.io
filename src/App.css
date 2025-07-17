@@ -16,6 +16,15 @@ body {
   padding: 10px;
 }
 
+.TypedText {
+  font-family: inherit;
+  display: inline-block;
+  margin: 0;
+  max-width: 100%;
+  overflow: scroll hidden;
+  scrollbar-width: none;
+}
+
 #homepage > .about-me {
   height: 120px;
 }

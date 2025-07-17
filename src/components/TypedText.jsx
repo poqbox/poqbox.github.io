@@ -1,14 +1,11 @@
 import { useState, useEffect, useRef } from "react"
 
 export default function TypedText({text, style=null, base_speed=120, skip_space=false, pause_before=[","], pause_duration=800, typing_delay=0, use_text_cursor=true}) {
-  // format input arguments
-  const style_original = {...style, fontFamily: "inherit", display: "inline-block", margin: 0, maxWidth: "100%", overflow: "scroll hidden", scrollbarWidth: "none"}
-
   // React objects
   const [FullText, setFullText] = useState(text)
   const [DisplayText, setDisplayText] = useState({text: "", intervalId: undefined})
-  const [Style, setStyle] = useState(style_original)
-  const [StyleOriginal, setStyleOriginal] = useState(style_original)
+  const [Style, setStyle] = useState(style)
+  const [StyleOriginal, setStyleOriginal] = useState(style)
   const [BaseSpeed, setBaseSpeed] = useState(base_speed)
   const [PauseDuration, setPauseDuration] = useState(pause_duration)
   const [TextCursor, setTextCursor] = useState({use: use_text_cursor, intervalId: undefined, timeoutId: undefined, clearTimingEvents: function() {clearInterval(this.intervalId); clearTimeout(this.timeoutId)}, iteration: 0})
