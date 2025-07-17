@@ -50,7 +50,6 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
           TextCursor.clearTimingEvents()
           setStyle(StyleOriginal)
         }
-        console.log(TextCursor.iteration)
       }, 1100)
     }
   }, [DisplayText])
