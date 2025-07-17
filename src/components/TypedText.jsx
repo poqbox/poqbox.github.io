@@ -7,7 +7,8 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
   // React objects
   const [FullText, setFullText] = useState(text)
   const [DisplayText, setDisplayText] = useState({text: "", intervalId: undefined})
-  const [Style, setStyle] = useState({...style_original, original: style_original})
+  const [Style, setStyle] = useState(style_original)
+  const [StyleOriginal, setStyleOriginal] = useState(style_original)
   const [BaseSpeed, setBaseSpeed] = useState(base_speed)
   const [PauseDuration, setPauseDuration] = useState(pause_duration)
   const [TextCursor, setTextCursor] = useState({use: use_text_cursor, intervalId: undefined, timeoutId: undefined, clearTimingEvents: function() {clearInterval(this.intervalId); clearTimeout(this.timeoutId)}, iteration: 0})
@@ -39,7 +40,7 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
 
       // start a new interval for TextCursor
       TextCursor.intervalId = setInterval(() => {
-        setStyle(Style.original)
+        setStyle(StyleOriginal)
         TextCursor.timeoutId = setTimeout(() => {
           setStyle(() => {
             return {...Style, ...textCursorStyle.current}
@@ -50,7 +51,7 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
         TextCursor.iteration++
         if (TextCursor.iteration > 3) {
           TextCursor.clearTimingEvents()
-          setStyle(Style.original)
+          setStyle(StyleOriginal)
         }
         console.log(TextCursor.iteration)
       }, 1100)
