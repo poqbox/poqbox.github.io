@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 
-export default function TypedText({text, style=null, base_speed=120, skip_space=false, pause_before=[","], pause_duration=800, typing_delay=0, use_text_cursor=true}) {
+export default function TypedText({text, style=null, base_speed=120, skip_space=false, pause_before=[","], pause_duration=800, typing_delay=0, use_text_cursor=true, begin_animation=true, setNextAnimationState=null}) {
   // React objects
   const [FullText, setFullText] = useState(text)
   const [DisplayText, setDisplayText] = useState({text: "", intervalId: undefined})
@@ -15,11 +15,13 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
 
   // initial useEffect
   useEffect(() => {
-    // start TypedText updates
-    setTimeout(() => {
-      setNewInterval()
-    }, typing_delay)
-  }, [])
+    if (begin_animation) {
+      // start TypedText updates
+      setTimeout(() => {
+        setNewInterval()
+      }, typing_delay)
+    }
+  }, [begin_animation])
 
   // useEffect for text updates
   useEffect(() => {
@@ -49,6 +51,9 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
         if (TextCursor.iteration > 3) {
           TextCursor.clearTimingEvents()
           setStyle(StyleOriginal)
+
+          if (setNextAnimationState)
+            setNextAnimationState(true)
         }
       }, 1100)
     }

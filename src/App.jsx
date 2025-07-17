@@ -4,6 +4,10 @@ import HomepageNavBar from './components/HomepageNavBar'
 import TypedText from './components/TypedText'
 
 export default function App() {
+  const [KeyState1, setKeyState1] = useState(true)
+  const [KeyState2, setKeyState2] = useState(false)
+  const [KeyState3, setKeyState3] = useState(false)
+
   return (
     <div id='homepage'>
       <header>
@@ -16,11 +20,13 @@ export default function App() {
             height: "1.3em"
           }}
           typing_delay={4000}
+          begin_animation={KeyState1}
+          setNextAnimationState={setKeyState2}
         />
         <div style={{height: "120px"}}></div>
       </header>
       <div className='about-me'></div>
-      <HomepageNavBar />
+      <HomepageNavBar begin_animation={KeyState2} setNextAnimationState={setKeyState3} />
     </div>
   )
 }
