@@ -63,9 +63,13 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
   // functions for updating TypedText
   function setNewInterval() {
     DisplayText.intervalId = setInterval(() => {
-      (textP.current !== FullText.length)
-        ? updateTypedText()
-        : clearInterval(DisplayText.intervalId)
+      if (textP.current !== FullText.length)
+        updateTypedText()
+      else {
+        clearInterval(DisplayText.intervalId)
+        if (!TextCursor.use && setNextAnimationState)
+          setNextAnimationState(true)
+      }
     }, BaseSpeed)
   }
 
