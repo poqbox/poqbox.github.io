@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 
-export default function TypedText({text, style=null, base_speed=120, skip_space=false, pause_before=[","], pause_duration=800, typing_delay=0, use_text_cursor=true, begin_animation=true, setNextAnimationState=null}) {
+export default function TypedText({text, style=null, base_speed=120, skip_space=false, pause_before=[","], pause_duration=800, typing_delay=0, use_text_cursor=true, max_text_cursor_blinks=3, begin_animation=true, setNextAnimationState=null}) {
   // React objects
   const [FullText, setFullText] = useState(text)
   const [DisplayText, setDisplayText] = useState({text: "", intervalId: undefined})
@@ -8,7 +8,17 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
   const [StyleOriginal, setStyleOriginal] = useState(style)
   const [BaseSpeed, setBaseSpeed] = useState(base_speed)
   const [PauseDuration, setPauseDuration] = useState(pause_duration)
-  const [TextCursor, setTextCursor] = useState({use: use_text_cursor, intervalId: undefined, timeoutId: undefined, clearTimingEvents: function() {clearInterval(this.intervalId); clearTimeout(this.timeoutId)}, iteration: 0})
+  const [TextCursor, setTextCursor] = useState({
+    use: use_text_cursor,
+    max_text_cursor_blinks: max_text_cursor_blinks,
+    intervalId: undefined,
+    timeoutId: undefined,
+    clearTimingEvents: function() {
+      clearInterval(this.intervalId)
+      clearTimeout(this.timeoutId)
+    },
+    iteration: 0
+  })
   const textP = useRef(0)
   const textCursorStyle = useRef({borderRight: "4px solid"})
 
@@ -48,7 +58,7 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
 
         // conditions for stopping TextCursor's animation
         TextCursor.iteration++
-        if (TextCursor.iteration > 3) {
+        if (TextCursor.iteration > TextCursor.max_text_cursor_blinks) {
           TextCursor.clearTimingEvents()
           setStyle(StyleOriginal)
 
