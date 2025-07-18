@@ -1,12 +1,11 @@
 import { useState } from 'react'
 import './App.css'
+import useKeyStates from './util/useKeyStates'
 import HomepageNavBar from './components/HomepageNavBar'
 import TypedText from './components/TypedText'
 
 export default function App() {
-  const [KeyState1, setKeyState1] = useState(true)
-  const [KeyState2, setKeyState2] = useState(false)
-  const [KeyState3, setKeyState3] = useState(false)
+  const KeyStates = useKeyStates(3, true)
 
   return (
     <div id='homepage'>
@@ -20,13 +19,13 @@ export default function App() {
             height: "1.3em"
           }}
           typing_delay={4000}
-          begin_animation={KeyState1}
-          setNextAnimationState={setKeyState2}
+          begin_animation={KeyStates[0].KeyState}
+          setNextAnimationState={KeyStates[1].setKeyState}
         />
         <div style={{height: "120px"}}></div>
       </header>
       <div className='about-me'></div>
-      <HomepageNavBar begin_animation={KeyState2} setNextAnimationState={setKeyState3} />
+      <HomepageNavBar begin_animation={KeyStates[1].KeyState} setNextAnimationState={KeyStates[2].setKeyState} />
     </div>
   )
 }
