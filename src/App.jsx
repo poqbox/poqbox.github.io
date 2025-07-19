@@ -14,8 +14,7 @@ export default function App() {
           text="Hi, I'm Kevin"
           style={{
             fontSize: "80px",
-            fontWeight: "bold",
-            height: "1.3em"
+            fontWeight: "bold"
           }}
           typing_delay={4000}
           begin_animation={KeyStates[0].KeyState}

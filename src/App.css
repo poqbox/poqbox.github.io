@@ -18,6 +18,7 @@ body {
 .TypedText {
   font-family: inherit;
   display: inline-block;
+  height: 1.3em;
   margin: 0;
   max-width: 100%;
   white-space: pre;
