@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import './App.css'
+import data from './data/data'
 import useKeyStates from './util/useKeyStates'
-import HomepageNavBar from './components/HomepageNavBar'
 import TypedText from './components/TypedText'
+import HomepageNavItem from './components/HomepageNavItem'
 
 export default function App() {
-  const KeyStates = useKeyStates(3, true)
+  const KeyStates = useKeyStates(5, true)
 
   return (
     <div id='homepage'>
@@ -22,7 +23,23 @@ export default function App() {
         />
       </header>
       <div className='about-me'></div>
-      <HomepageNavBar begin_animation={KeyStates[1].KeyState} setNextAnimationState={KeyStates[2].setKeyState} />
+      <nav className='navbar'>
+        <HomepageNavItem
+          title={data['homepage-navbar'][0].title}
+          begin_animation={KeyStates[1].KeyState}
+          setNextAnimationState={KeyStates[2].setKeyState}
+        />
+        <HomepageNavItem
+          title={data['homepage-navbar'][1].title}
+          begin_animation={KeyStates[2].KeyState}
+          setNextAnimationState={KeyStates[3].setKeyState}
+        />
+        <HomepageNavItem
+          title={data['homepage-navbar'][2].title}
+          begin_animation={KeyStates[3].KeyState}
+          setNextAnimationState={KeyStates[4].setKeyState}
+        />
+      </nav>
     </div>
   )
 }
