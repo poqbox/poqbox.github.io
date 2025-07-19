@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 
-export default function TypedText({text, style=null, base_speed=120, skip_space=false, pause_before=[","], pause_duration=800, typing_delay=0, use_text_cursor=true, max_text_cursor_blinks=3, begin_animation=true, setNextAnimationState=null}) {
+export default function TypedText({text, style=null, base_speed=120, skip_space=false, pause_before=[","], pause_duration=800, typing_delay=0, use_text_cursor=true, max_text_cursor_blinks=3, custom_ending_duration=null, begin_animation=true, setNextAnimationState=null}) {
   // React objects
   const [FullText, setFullText] = useState(text)
   const [DisplayText, setDisplayText] = useState({text: "", intervalId: undefined})
@@ -8,6 +8,7 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
   const [StyleOriginal, setStyleOriginal] = useState(style)
   const [BaseSpeed, setBaseSpeed] = useState(base_speed)
   const [PauseDuration, setPauseDuration] = useState(pause_duration)
+  const [CustomEndingDuration, setCustomEndingDuration] = useState(custom_ending_duration)
   const [TextCursor, setTextCursor] = useState({
     use: use_text_cursor,
     max_text_cursor_blinks: max_text_cursor_blinks,
@@ -37,7 +38,7 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
   useEffect(() => {
     // TextCursor updates
     if (TextCursor.use) {
-
+      // Initial setup
       // show the text cursor
       if (TextCursor.intervalId) {
         setStyle(() => {
@@ -47,6 +48,18 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
       TextCursor.clearTimingEvents()
       TextCursor.iteration = 0
 
+      // account for a custom ending duration
+      if (DisplayText.text === FullText && CustomEndingDuration) {
+        setTimeout(() => {
+          TextCursor.clearTimingEvents()
+          setStyle(StyleOriginal)
+
+          if (setNextAnimationState)
+            setNextAnimationState(true)
+        }, CustomEndingDuration)
+      }
+
+      // Begin TextCursor animation
       // start a new interval for TextCursor
       TextCursor.intervalId = setInterval(() => {
         // hide the text cursor
@@ -69,6 +82,7 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
         }
       }, 1100)
     }
+
   }, [DisplayText])
 
 
