@@ -62,7 +62,7 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
           TextCursor.clearTimingEvents()
           setStyle(StyleOriginal)
 
-          if (setNextAnimationState)
+          if (DisplayText.text === FullText && setNextAnimationState)
             setNextAnimationState(true)
         }
       }, 1100)
