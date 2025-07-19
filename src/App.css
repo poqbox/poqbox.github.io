@@ -20,6 +20,7 @@ body {
   display: inline-block;
   margin: 0;
   max-width: 100%;
+  white-space: pre;
   overflow: scroll hidden;
   scrollbar-width: none;
 }

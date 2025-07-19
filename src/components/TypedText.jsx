@@ -128,7 +128,7 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
 
 
   // return the React component
-  return <pre className="TypedText" style={Style}>
+  return <span className="TypedText" style={Style}>
     {DisplayText.text}
-  </pre>
+  </span>
 }

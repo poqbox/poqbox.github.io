@@ -13,7 +13,6 @@ export default function App() {
         <TypedText
           text="Hi, I'm Kevin"
           style={{
-            position: "absolute",
             fontSize: "80px",
             fontWeight: "bold",
             height: "1.3em"
@@ -22,7 +21,6 @@ export default function App() {
           begin_animation={KeyStates[0].KeyState}
           setNextAnimationState={KeyStates[1].setKeyState}
         />
-        <div style={{height: "120px"}}></div>
       </header>
       <div className='about-me'></div>
       <HomepageNavBar begin_animation={KeyStates[1].KeyState} setNextAnimationState={KeyStates[2].setKeyState} />
