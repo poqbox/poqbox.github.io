@@ -38,7 +38,7 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
     // TextCursor updates
     if (TextCursor.use) {
 
-      // apply the initial TextCursor state
+      // show the text cursor
       if (TextCursor.intervalId) {
         setStyle(() => {
           return {...Style, ...textCursorStyle.current}
@@ -49,8 +49,10 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
 
       // start a new interval for TextCursor
       TextCursor.intervalId = setInterval(() => {
+        // hide the text cursor
         setStyle(StyleOriginal)
         TextCursor.timeoutId = setTimeout(() => {
+          // show the text cursor
           setStyle(() => {
             return {...Style, ...textCursorStyle.current}
           })
