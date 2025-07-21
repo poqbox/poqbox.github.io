@@ -1,7 +1,7 @@
 export default {
   "homepage-navbar": [
-    {title: "Projects"},
-    {title: "Websites"},
-    {title: "About"}
+    {title: "Work..."},
+    {title: "  In"},
+    {title: "Progress..."}
   ]
 }
