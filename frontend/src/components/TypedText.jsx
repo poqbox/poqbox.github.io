@@ -117,7 +117,6 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
       // extra timings
       if (pause_before.includes(next_char)) {
         pauseBeforeUpdateTypedText()
-        clearInterval(DisplayText.intervalId)
         return DisplayText
       }
 
@@ -134,7 +133,8 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
   }
 
   function pauseBeforeUpdateTypedText() {
-    setTimeout(() => {
+    clearInterval(DisplayText.intervalId)
+    DisplayText.intervalId = setTimeout(() => {
       setDisplayText((DisplayText) => {
         return {
           ...DisplayText,
