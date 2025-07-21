@@ -93,8 +93,11 @@ export default function TypedText({text, style=null, base_speed=120, skip_space=
         updateTypedText()
       else {
         clearInterval(DisplayText.intervalId)
-        if (!TextCursor.use && setNextAnimationState)
-          setNextAnimationState(true)
+        if (!TextCursor.use && setNextAnimationState) {
+          setTimeout(() => {
+            setNextAnimationState(true)
+          }, (CustomEndingDuration) ? CustomEndingDuration : 0)
+        }
       }
     }, BaseSpeed)
   }
