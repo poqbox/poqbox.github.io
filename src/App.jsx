@@ -18,6 +18,7 @@ export default function App() {
             fontWeight: "bold"
           }}
           typing_delay={4000}
+          custom_ending_duration={3300}
           begin_animation={KeyStates[0].KeyState}
           setNextAnimationState={KeyStates[1].setKeyState}
         />

@@ -55,3 +55,8 @@ body {
 #homepage > .about-me {
   height: 120px;
 }
+
+.navbar {
+  margin-left: 6px;
+  width: fit-content;
+}
