@@ -8,15 +8,33 @@ export default function HomepageSubMenu({MenuTitle=null}) {
 
 
   useEffect(() => {
-    for (const item of data["homepage-navbar"]) {
-      if (MenuTitle === item.title) {
+    switch (MenuTitle) {
+      case data["homepage-navbar"][0].title:
         setMenuList([
           <a className="HomepageNavSubItem">
-            <ObfuscatedText length={4} speed={120} />
+            Undergoing
+          </a>,
+          <a className="HomepageNavSubItem">
+            construction
           </a>
         ])
         break
-      }
+      case data["homepage-navbar"][1].title:
+        setMenuList([
+          <a className="HomepageNavSubItem">
+            Constructing...
+          </a>
+        ])
+        break
+      case data["homepage-navbar"][2].title:
+        setMenuList([
+          <a className="HomepageNavSubItem">
+            ETA: <ObfuscatedText length={2} speed={120} style={{fontFamily: "inherit"}} />
+          </a>
+        ])
+        break
+      default:
+        setMenuList([])
     }
   }, [MenuTitle])
 
