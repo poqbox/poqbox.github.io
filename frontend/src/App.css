@@ -73,7 +73,7 @@ body {
   background: linear-gradient(to left, rgba(0, 0, 0, 0) 50%, rgba(135, 135, 135, 0.4) 50%);
   background-size: 200% 100%;
   background-position: right;
-  transition-property: background-position;
+  transition-property: background-position border-radius;
   transition-duration: 160ms;
   transition-timing-function: ease-in;
 }
