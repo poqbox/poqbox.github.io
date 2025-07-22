@@ -26,16 +26,50 @@ body {
   scrollbar-width: none;
 }
 
-.HomepageNavItem {
-  font-size: 24px;
-  display: block;
+#HomepageNavBar {
+  position: relative;
+  top: -1em;
+  display: flex;
+  margin-left: 6px;
   width: fit-content;
+}
+#HomepageMainMenu {
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  margin-top: 2em;
+}
+#HomepageSubMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  font-size: 24px;
+  margin-left: 16px;
+  padding: 8px;
+  padding-left: 16px;
+  border-radius: 20px 0 0 20px;
+  box-shadow: -2px 0 2.2px gray;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 160ms;
+  transition-timing-function: ease-in;
+}
+
+.HomepageNavItem {
+  display: block;
   height: 1.5em;
-  margin: 12px 0;
+  margin-bottom: 0.5em;
   padding: 4px 8px;
   border-radius: 0 20% 20% 0;
   box-shadow: -2px 0 1.2px gray;
   user-select: none;
+}
+.HomepageNavSubItem {
+  margin-bottom: 4px;
+  padding: 4px 8px;
+  border-radius: 12px 0 0 12px;
+}
+.HomepageNavItem, .HomepageNavSubItem {
   background: linear-gradient(to left, rgba(0, 0, 0, 0) 50%, rgba(135, 135, 135, 0.4) 50%);
   background-size: 200% 100%;
   background-position: right;
@@ -44,9 +78,18 @@ body {
   transition-timing-function: ease-in;
 }
 
-.HomepageNavItem:hover {
+.HomepageNavItem:hover, .HomepageNavSubItem:hover {
   background-position: left;
   cursor: pointer;
+}
+
+.HomepageNavItem.active {
+  background-position: left;
+  width: 100%;
+  border-radius: 0;
+}
+#HomepageSubMenu.active {
+  opacity: 1;
 }
 
 .cursor-grabbing {cursor: grabbing;}
@@ -54,9 +97,4 @@ body {
 
 #homepage > .about-me {
   height: 120px;
-}
-
-.navbar {
-  margin-left: 6px;
-  width: fit-content;
 }

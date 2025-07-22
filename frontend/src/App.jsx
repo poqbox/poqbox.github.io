@@ -4,9 +4,14 @@ import data from './data/data'
 import useKeyStates from './util/useKeyStates'
 import TypedText from './components/TypedText'
 import HomepageNavItem from './components/HomepageNavItem'
+import HomepageSubMenu from './components/HomepageSubMenu'
+import HomepageMainMenu from './components/HomepageMainMenu.jsx'
+
 
 export default function App() {
   const KeyStates = useKeyStates(5, true)
+  const [ActiveMenu, setActiveMenu] = useState(null)
+
 
   return (
     <div id='homepage'>
@@ -24,22 +29,30 @@ export default function App() {
         />
       </header>
       <div className='about-me'></div>
-      <nav className='navbar'>
-        <HomepageNavItem
-          title={data['homepage-navbar'][0].title}
-          begin_animation={KeyStates[1].KeyState}
-          setNextAnimationState={KeyStates[2].setKeyState}
-        />
-        <HomepageNavItem
-          title={data['homepage-navbar'][1].title}
-          begin_animation={KeyStates[2].KeyState}
-          setNextAnimationState={KeyStates[3].setKeyState}
-        />
-        <HomepageNavItem
-          title={data['homepage-navbar'][2].title}
-          begin_animation={KeyStates[3].KeyState}
-          setNextAnimationState={KeyStates[4].setKeyState}
-        />
+      <nav id='HomepageNavBar'>
+        <HomepageMainMenu ActiveMenu={ActiveMenu} Body={
+          <>
+            <HomepageNavItem
+              title={data['homepage-navbar'][0].title}
+              begin_animation={KeyStates[1].KeyState}
+              setNextAnimationState={KeyStates[2].setKeyState}
+              sendResponse={setActiveMenu}
+            />
+            <HomepageNavItem
+              title={data['homepage-navbar'][1].title}
+              begin_animation={KeyStates[2].KeyState}
+              setNextAnimationState={KeyStates[3].setKeyState}
+              sendResponse={setActiveMenu}
+            />
+            <HomepageNavItem
+              title={data['homepage-navbar'][2].title}
+              begin_animation={KeyStates[3].KeyState}
+              setNextAnimationState={KeyStates[4].setKeyState}
+              sendResponse={setActiveMenu}
+            />
+          </>
+        } />
+        <HomepageSubMenu MenuTitle={ActiveMenu} />
       </nav>
     </div>
   )

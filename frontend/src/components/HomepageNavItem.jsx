@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import TypedText from './TypedText'
 
-export default function HomepageNavItem({title, begin_animation=true, setNextAnimationState=null}) {
+
+export default function HomepageNavItem({title, begin_animation=true, setNextAnimationState=null, sendResponse=null}) {
+  const [Title, setTitle] = useState(title)
   const [Style, setStyle] = useState({height: 0, padding: 0}) // hide the component until the animation begins
 
 
@@ -15,26 +17,39 @@ export default function HomepageNavItem({title, begin_animation=true, setNextAni
   // event handlers
   function onMouseDownHandler(e) {
     e.currentTarget.classList.add("cursor-grabbing")
+    setStyle({width: "100%"})
   }
   function onMouseUpHandler(e) {
     e.currentTarget.classList.remove("cursor-grabbing")
+    if (sendResponse) {
+      if (!e.currentTarget.classList.contains("active")) {
+        sendResponse(Title)
+      }
+      else {
+        e.currentTarget.classList.remove("active")
+        sendResponse(null)
+      }
+    }
   }
   function onMouseLeaveHandler(e) {
     e.currentTarget.classList.remove("cursor-grabbing")
+    if (!e.currentTarget.classList.contains("active"))
+      setStyle({})
   }
 
 
   return (
     <>
       <a
-        className={`HomepageNavItem ${title}`}
+        id={`${Title}`}
+        className={`HomepageNavItem ${Title}`}
         onMouseDown={onMouseDownHandler}
         onMouseUp={onMouseUpHandler}
         onMouseLeave={onMouseLeaveHandler}
         style={Style}
       >
         <TypedText
-          text={title}
+          text={Title}
           style={{fontWeight: "bold"}}
           base_speed={60}
           max_text_cursor_blinks={0}
