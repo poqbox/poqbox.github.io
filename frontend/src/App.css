@@ -36,14 +36,14 @@ body {
 #HomepageMainMenu {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   font-size: 24px;
-  margin-top: 2em;
 }
 #HomepageSubMenu {
   font-family: 'Courier New', Courier, monospace;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  height: 10em;
   font-size: 24px;
   margin-left: 16px;
   padding: 8px;
@@ -59,14 +59,14 @@ body {
 .HomepageNavItem {
   display: block;
   height: 1.5em;
-  margin-bottom: 0.5em;
+  margin: 0.25em 0;
   padding: 4px 8px;
   border-radius: 0 20% 20% 0;
   box-shadow: -2px 0 1.2px gray;
   user-select: none;
 }
 .HomepageNavSubItem {
-  padding: 4px 8px;
+  padding: 2px 8px;
   border-radius: 12px 0 0 12px;
 }
 .HomepageNavItem, .HomepageNavSubItem {
