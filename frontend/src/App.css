@@ -92,9 +92,56 @@ body {
   opacity: 1;
 }
 
+#HomepageFooter {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 16px;
+}
+
 .cursor-grabbing {cursor: grabbing;}
 .cursor-grabbing:hover {cursor: grabbing;}
 
 #homepage > .about-me {
   height: 120px;
+}
+
+.footer-links {
+  display: flex;
+  margin-left: 8px;
+  gap: 10px;
+}
+.footer-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition-property: opacity;
+  transition-duration: 240ms;
+  transition-timing-function: ease-in;
+
+  .footer-icon {
+    max-height: 30px;
+    margin: auto;
+    vertical-align: middle;
+    opacity: 0.75;
+    transition-property: max-height, opacity;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+  }
+  .footer-icon.linkedin {
+    max-height: 26px;
+  }
+  .footer-icon:hover {
+    max-height: 36px;
+    opacity: 1;
+  }
+  .footer-icon.linkedin:hover {
+    max-height: 30px;
+    opacity: 1;
+  }
 }

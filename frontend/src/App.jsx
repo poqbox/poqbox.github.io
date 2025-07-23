@@ -6,6 +6,7 @@ import TypedText from './components/TypedText'
 import HomepageNavItem from './components/HomepageNavItem'
 import HomepageSubMenu from './components/HomepageSubMenu'
 import HomepageMainMenu from './components/HomepageMainMenu.jsx'
+import HomepageFooter from './components/HomepageFooter.jsx'
 
 
 export default function App() {
@@ -54,6 +55,9 @@ export default function App() {
         } />
         <HomepageSubMenu MenuTitle={ActiveMenu} />
       </nav>
+      <HomepageFooter
+        begin_animation={KeyStates[4].KeyState}
+      />
     </div>
   )
 }
