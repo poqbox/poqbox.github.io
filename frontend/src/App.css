@@ -133,15 +133,10 @@ body {
     transition-duration: 300ms;
     transition-timing-function: ease-in-out;
   }
-  .footer-icon.linkedin {
-    max-height: 26px;
-  }
   .footer-icon:hover {
     max-height: 36px;
     opacity: 1;
   }
-  .footer-icon.linkedin:hover {
-    max-height: 30px;
-    opacity: 1;
-  }
+  .footer-icon.linkedin { max-height: 26px; }
+  .footer-icon.linkedin:hover { max-height: 30px; }
 }
