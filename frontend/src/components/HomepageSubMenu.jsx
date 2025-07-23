@@ -7,6 +7,7 @@ export default function HomepageSubMenu({MenuTitle=null}) {
   const [MenuList, setMenuList] = useState([])
 
 
+  // useEffect for setting the contents of the sub-menu
   useEffect(() => {
     switch (MenuTitle) {
       case data["homepage-navbar"][0].title:
@@ -39,6 +40,7 @@ export default function HomepageSubMenu({MenuTitle=null}) {
   }, [MenuTitle])
 
 
+  // return the React component
   return (
     <div id="HomepageSubMenu">
       {MenuList}

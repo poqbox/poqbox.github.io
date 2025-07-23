@@ -38,6 +38,7 @@ export default function HomepageNavItem({title, begin_animation=true, setNextAni
   }
 
 
+  // return the React component
   return (
     <>
       <a

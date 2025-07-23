@@ -8,7 +8,7 @@ export default function HomepageFooter({begin_animation=true, setNextAnimationSt
   const [Style3, setStyle3] = useState({opacity: 0})
 
 
-  // initial effect
+  // initial useEffect
   useEffect(() => {
     if (begin_animation) {
       // unhide the components
@@ -19,6 +19,7 @@ export default function HomepageFooter({begin_animation=true, setNextAnimationSt
   }, [begin_animation])
 
   
+  // return the React component
   return (
     <footer id='HomepageFooter'>
       <div className='footer-links'>

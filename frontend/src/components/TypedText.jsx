@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 
+
 export default function TypedText({text, style=null, base_speed=120, skip_space=false, pause_before=[","], pause_duration=800, typing_delay=0, use_text_cursor=true, max_text_cursor_blinks=3, custom_ending_duration=null, begin_animation=true, setNextAnimationState=null}) {
   // React objects
   const [FullText, setFullText] = useState(text)

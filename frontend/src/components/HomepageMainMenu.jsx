@@ -3,6 +3,7 @@ import data from '../data/data'
 
 
 export default function HomepageMainMenu({ActiveMenu, Body}) {
+  // useEffect for determing the active menu
   useEffect(() => {
     if (ActiveMenu) {
       data['homepage-navbar'].forEach((item) => {
@@ -18,6 +19,7 @@ export default function HomepageMainMenu({ActiveMenu, Body}) {
   }, [ActiveMenu])
 
 
+  // return the React component
   return (
     <div id="HomepageMainMenu">
       {Body}
