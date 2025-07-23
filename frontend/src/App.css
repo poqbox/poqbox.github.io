@@ -130,7 +130,7 @@ body {
     vertical-align: middle;
     opacity: 0.75;
     transition-property: max-height, opacity;
-    transition-duration: 200ms;
+    transition-duration: 300ms;
     transition-timing-function: ease-in-out;
   }
   .footer-icon.linkedin {
