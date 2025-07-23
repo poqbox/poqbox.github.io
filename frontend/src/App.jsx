@@ -7,15 +7,17 @@ import HomepageNavItem from './components/HomepageNavItem'
 import HomepageSubMenu from './components/HomepageSubMenu'
 import HomepageMainMenu from './components/HomepageMainMenu.jsx'
 import HomepageFooter from './components/HomepageFooter.jsx'
+import Content from './components/Content.jsx'
 
 
 export default function App() {
   const KeyStates = useKeyStates(5, true)
   const [ActiveMenu, setActiveMenu] = useState(null)
+  const [ContentPage, setContentPage] = useState(null)
 
 
-  return (
-    <div id='homepage'>
+  return (<>
+    <div id='Homepage'>
       <header>
         <TypedText
           text="Hi, I'm Kevin"
@@ -53,11 +55,15 @@ export default function App() {
             />
           </>
         } />
-        <HomepageSubMenu MenuTitle={ActiveMenu} />
+        <HomepageSubMenu CurrentMenu={ActiveMenu} ContentPage={ContentPage} setContentPage={setContentPage} />
       </nav>
       <HomepageFooter
         begin_animation={KeyStates[4].KeyState}
       />
     </div>
-  )
+
+    <Content show={ContentPage} setCurrentPage={setContentPage} Body={
+      <div>Hi</div>
+    } />
+  </>)
 }
