@@ -8,6 +8,7 @@ import HomepageSubMenu from './components/HomepageSubMenu'
 import HomepageMainMenu from './components/HomepageMainMenu.jsx'
 import HomepageFooter from './components/HomepageFooter.jsx'
 import Content from './components/Content.jsx'
+import HomepageNavBar from './components/HomepageNavBar.jsx'
 
 
 export default function App() {
@@ -32,7 +33,7 @@ export default function App() {
         />
       </header>
       <div className='about-me'></div>
-      <nav id='HomepageNavBar'>
+      <HomepageNavBar Body={<>
         <HomepageMainMenu ActiveMenu={ActiveMenu} Body={
           <>
             <HomepageNavItem
@@ -56,7 +57,7 @@ export default function App() {
           </>
         } />
         <HomepageSubMenu CurrentMenu={ActiveMenu} ContentPage={ContentPage} setContentPage={setContentPage} />
-      </nav>
+      </>} />
       <HomepageFooter
         begin_animation={KeyStates[4].KeyState}
       />
