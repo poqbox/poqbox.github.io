@@ -10,7 +10,7 @@ export default function Content({show=true, setCurrentPage=null, Body=null}) {
     if (show) {
       if (setCurrentPage)
         setCurrentPage("Content")
-      setClassNames("")
+      setClassNames(" shown")
     }
     else
       setClassNames(" hidden")

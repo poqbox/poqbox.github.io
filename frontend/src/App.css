@@ -4,6 +4,7 @@
   --sidebar-width: 240px;
   --footer-width: 160px;
   --w-offset: max( calc((100vw - var(--Homepage-max-width)) / 2) , 0px);
+  --Content-width: calc(100vw - var(--sidebar-width));
   /***IMPORTANT**
     Transitions don't work with auto
     **IMPORTANT***/
@@ -18,6 +19,7 @@
 #HomepageNavBar.sidebar {inset: 204px auto auto -141px}
 #HomepageFooter.sidebar {inset: auto auto 0 0}
 .Content.hidden {inset: auto auto auto 100%}
+.Content.shown {box-shadow: 0 0 8px 8px}
 .HomepageNavItem.active {
   background-position: left;
   width: 100%;
@@ -159,7 +161,7 @@ body {
   background-color: white;
   color: black;
   height: 100%;
-  width: 100%;
+  width: var(--Content-width);
   position: absolute;
   inset: auto auto auto var(--sidebar-width);
   transition: var(--Content-transition);
