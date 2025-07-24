@@ -2,20 +2,20 @@
   --Homepage-max-width: 1280px;
   --HomepageHeader-width: 520px;
   --sidebar-width: 240px;
-  --footer-width: 180px;
+  --footer-width: 160px;
   --w-offset: max( calc((100vw - var(--Homepage-max-width)) / 2) , 0px);
   /***IMPORTANT**
     Transitions don't work with auto
     **IMPORTANT***/
   --HomepageHeader-transition: inset 480ms ease-out 320ms;
   --HomepageNavBar-transition: inset 240ms ease-out 240ms;
-  --HomepageFooter-transition: inset 460ms ease-out 20ms;
+  --HomepageFooter-transition: inset 480ms ease-out 40ms;
   --ToHomepageButton-transition: opacity 300ms ease-in-out 300ms,
                         background-color 240ms ease-in;
   --Content-transition: inset 480ms ease-out;
 }
 #HomepageHeader.hidden {inset: auto calc(var(--w-offset) + var(--HomepageHeader-width)) auto auto}
-#HomepageNavBar.sidebar {inset: auto auto auto -140px}
+#HomepageNavBar.sidebar {inset: 204px auto auto -141px}
 #HomepageFooter.sidebar {inset: auto auto 0 0}
 .Content.hidden {inset: auto auto auto 100%}
 .HomepageNavItem.active {
@@ -76,7 +76,7 @@ body {
 }
 #HomepageNavBar {
   position: absolute;
-  inset: auto auto auto var(--w-offset);
+  inset: 204px auto auto var(--w-offset);
   display: flex;
   margin-left: 6px;
   width: fit-content;
@@ -110,7 +110,7 @@ body {
   display: flex;
   position: absolute;
   inset: auto auto 0 calc(100% - var(--footer-width));
-  padding: 16px;
+  padding: 16px 0;
   transition: var(--HomepageFooter-transition);
 }
 
