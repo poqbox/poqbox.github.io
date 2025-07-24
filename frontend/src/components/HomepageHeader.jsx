@@ -1,7 +1,7 @@
 import TypedText from "./TypedText"
 
 
-export default function HomepageHeader({begin_animation, setNextAnimationState}) {
+export default function HomepageHeader({begin_animation=true, setNextAnimationState=null}) {
   return (
     <header id="HomepageHeader">
       <TypedText

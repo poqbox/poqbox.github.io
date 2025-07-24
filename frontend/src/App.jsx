@@ -3,12 +3,12 @@ import './App.css'
 import data from './data/data'
 import useKeyStates from './util/useKeyStates'
 import HomepageHeader from './components/HomepageHeader.jsx'
+import HomepageNavBar from './components/HomepageNavBar.jsx'
 import HomepageNavItem from './components/HomepageNavItem'
 import HomepageSubMenu from './components/HomepageSubMenu'
 import HomepageMainMenu from './components/HomepageMainMenu.jsx'
 import HomepageFooter from './components/HomepageFooter.jsx'
 import Content from './components/Content.jsx'
-import HomepageNavBar from './components/HomepageNavBar.jsx'
 
 
 export default function App() {
@@ -54,8 +54,6 @@ export default function App() {
       />
     </div>
 
-    <Content show={ContentPage} setCurrentPage={setContentPage} Body={
-      <div>Hi</div>
-    } />
+    <Content show={ContentPage} setCurrentPage={setContentPage} />
   </>)
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 
-export default function Content({show=true, setCurrentPage, Body}) {
+export default function Content({show=true, setCurrentPage=null, Body=null}) {
   const [Style, setStyle] = useState({inset: "auto auto auto 100%"})
 
 
