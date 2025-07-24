@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import data from './data/data'
 import useKeyStates from './util/useKeyStates'
-import TypedText from './components/TypedText'
+import HomepageHeader from './components/HomepageHeader.jsx'
 import HomepageNavItem from './components/HomepageNavItem'
 import HomepageSubMenu from './components/HomepageSubMenu'
 import HomepageMainMenu from './components/HomepageMainMenu.jsx'
@@ -19,19 +19,10 @@ export default function App() {
 
   return (<>
     <div id='Homepage'>
-      <header>
-        <TypedText
-          text="Hi, I'm Kevin"
-          style={{
-            fontSize: "80px",
-            fontWeight: "bold"
-          }}
-          typing_delay={4000}
-          custom_ending_duration={3300}
-          begin_animation={KeyStates[0].KeyState}
-          setNextAnimationState={KeyStates[1].setKeyState}
-        />
-      </header>
+      <HomepageHeader
+        begin_animation={KeyStates[0].KeyState}
+        setNextAnimationState={KeyStates[1].setKeyState}
+      />
       <div className='about-me'></div>
       <HomepageNavBar Body={<>
         <HomepageMainMenu ActiveMenu={ActiveMenu} Body={

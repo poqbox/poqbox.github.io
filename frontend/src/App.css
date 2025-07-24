@@ -39,6 +39,10 @@ body {
   scrollbar-width: none;
 }
 
+#HomepageHeader {
+  font-size: 80px;
+  font-weight: bold;
+}
 #HomepageNavBar {
   position: relative;
   top: -1em;
