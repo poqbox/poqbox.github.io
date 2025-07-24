@@ -10,6 +10,8 @@
   --HomepageHeader-transition: inset 480ms ease-out 320ms;
   --HomepageNavBar-transition: inset 240ms ease-out 240ms;
   --HomepageFooter-transition: inset 460ms ease-out 20ms;
+  --ToHomepageButton-transition: opacity 300ms ease-in-out 300ms,
+                        background-color 240ms ease-in;
   --Content-transition: inset 480ms ease-out;
 }
 #HomepageHeader.hidden {inset: auto calc(var(--w-offset) + var(--HomepageHeader-width)) auto auto}
@@ -139,14 +141,18 @@ body {
   transition: var(--HomepageFooter-transition);
 }
 .ToHomepageButton {
-  position: absolute;
-  top: -36px;
-  height: 24px;
   filter: invert(100%);
-  transition-property: opacity;
-  transition-duration: 300ms;
-  transition-timing-function: ease-in-out;
-  transition-delay: 300ms;
+  position: absolute;
+  top: -40px;
+  height: 24px;
+  border-radius: 12px;
+  padding: 4px;
+  opacity: 0.75;
+  transition: var(--ToHomepageButton-transition)
+}
+.ToHomepageButton:hover {
+  cursor: pointer;
+  background-color: rgba(135, 135, 135, 0.5);
 }
 
 .Content {
