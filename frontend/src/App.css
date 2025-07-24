@@ -1,17 +1,18 @@
 :root {
   --Homepage-max-width: 1280px;
+  --HomepageHeader-width: 520px;
   --sidebar-width: 240px;
   --footer-width: 180px;
   --w-offset: max( calc((100vw - var(--Homepage-max-width)) / 2) , 0px);
   /***IMPORTANT**
     Transitions don't work with auto
     **IMPORTANT***/
-  --HomepageHeader-transition: inset 480ms ease-out;
-  --HomepageNavBar-transition: inset 480ms ease-out;
-  --HomepageFooter-transition: inset 480ms ease-out;
+  --HomepageHeader-transition: inset 480ms ease-out 320ms;
+  --HomepageNavBar-transition: inset 240ms ease-out 240ms;
+  --HomepageFooter-transition: inset 460ms ease-out 20ms;
   --Content-transition: inset 480ms ease-out;
 }
-#HomepageHeader.hidden {inset: auto 100% auto auto}
+#HomepageHeader.hidden {inset: auto calc(var(--w-offset) + var(--HomepageHeader-width)) auto auto}
 #HomepageNavBar.sidebar {inset: auto auto auto -140px}
 #HomepageFooter.sidebar {inset: auto auto 0 0}
 .Content.hidden {inset: auto auto auto 100%}
@@ -56,6 +57,7 @@ body {
 #HomepageHeader {
   position: relative;
   inset: auto 0 auto auto;
+  width: var(--HomepageHeader-width);
   font-size: 80px;
   font-weight: bold;
   transition: var(--HomepageHeader-transition);
