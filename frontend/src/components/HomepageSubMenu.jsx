@@ -49,11 +49,9 @@ export default function HomepageSubMenu({CurrentMenu=null, ContentPage=null, set
 
   // return the React component
   return (
-    <div>
-      <div id="HomepageSubMenu">
+    <div id="HomepageSubMenu">
       {(ContentPage) ? <ToHomepageButton setContentPage={setContentPage} /> : null}
-        {MenuList}
-      </div>
+      {MenuList}
     </div>
   )
 }

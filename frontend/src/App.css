@@ -18,6 +18,16 @@
 #HomepageNavBar.sidebar {inset: auto auto auto -140px}
 #HomepageFooter.sidebar {inset: auto auto 0 0}
 .Content.hidden {inset: auto auto auto 100%}
+.HomepageNavItem.active {
+  background-position: left;
+  width: 100%;
+  border-radius: 0;
+}
+#HomepageSubMenu.active {opacity: 1}
+
+
+.cursor-grabbing {cursor: grabbing;}
+.cursor-grabbing:hover {cursor: grabbing;}
 
 
 html, body {
@@ -96,6 +106,13 @@ body {
   transition-duration: 160ms;
   transition-timing-function: ease-in;
 }
+#HomepageFooter {
+  display: flex;
+  position: absolute;
+  inset: auto auto 0 calc(100% - var(--footer-width));
+  padding: 16px;
+  transition: var(--HomepageFooter-transition);
+}
 
 .HomepageNavItem {
   display: block;
@@ -123,23 +140,6 @@ body {
   background-position: left;
   cursor: pointer;
 }
-
-.HomepageNavItem.active {
-  background-position: left;
-  width: 100%;
-  border-radius: 0;
-}
-#HomepageSubMenu.active {
-  opacity: 1;
-}
-
-#HomepageFooter {
-  display: flex;
-  position: absolute;
-  inset: auto auto 0 calc(100% - var(--footer-width));
-  padding: 16px;
-  transition: var(--HomepageFooter-transition);
-}
 .ToHomepageButton {
   filter: invert(100%);
   position: absolute;
@@ -163,9 +163,6 @@ body {
   inset: auto auto auto var(--sidebar-width);
   transition: var(--Content-transition);
 }
-
-.cursor-grabbing {cursor: grabbing;}
-.cursor-grabbing:hover {cursor: grabbing;}
 
 #Homepage > .about-me {
   height: 100px;
