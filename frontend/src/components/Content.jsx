@@ -2,23 +2,24 @@ import { useState, useEffect } from "react"
 
 
 export default function Content({show=true, setCurrentPage=null, Body=null}) {
-  const [Style, setStyle] = useState({inset: "auto auto auto 100%"})
+  const [ClassNames, setClassNames] = useState("")
 
 
+  // useEffect for the component's hiding animation
   useEffect(() => {
     if (show) {
       if (setCurrentPage)
         setCurrentPage("Content")
-      setStyle({})
+      setClassNames("")
     }
-    else {
-      setStyle({inset: "auto auto auto 100%"})
-    }
+    else
+      setClassNames(" hidden")
   }, [show])
 
 
+  // return the React component
   return (
-    <div className="Content" style={Style}>
+    <div className={`Content${ClassNames}`}>
       {Body}
     </div>
   )

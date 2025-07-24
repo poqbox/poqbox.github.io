@@ -1,6 +1,20 @@
 :root {
+  --Homepage-max-width: 1280px;
   --sidebar-width: 240px;
+  --footer-width: 180px;
+  --w-offset: max( calc((100vw - var(--Homepage-max-width)) / 2) , 0px);
+  /***IMPORTANT**
+    Transitions don't work with auto
+    **IMPORTANT***/
+  --HomepageHeader-transition: inset 480ms ease-out;
+  --HomepageNavBar-transition: inset 480ms ease-out;
+  --HomepageFooter-transition: inset 480ms ease-out;
+  --Content-transition: inset 480ms ease-out;
 }
+#HomepageHeader.hidden {inset: auto 100% auto auto}
+#HomepageNavBar.sidebar {inset: auto auto auto -140px}
+#HomepageFooter.sidebar {inset: auto auto 0 0}
+.Content.hidden {inset: auto auto auto 100%}
 
 
 html, body {
@@ -20,7 +34,7 @@ body {
   height: 100%;
 }
 #Homepage {
-  max-width: 1280px;
+  max-width: var(--Homepage-max-width);
   height: 100%;
   width: 100%;
   margin: auto;
@@ -40,15 +54,19 @@ body {
 }
 
 #HomepageHeader {
+  position: relative;
+  inset: auto 0 auto auto;
   font-size: 80px;
   font-weight: bold;
+  transition: var(--HomepageHeader-transition);
 }
 #HomepageNavBar {
-  position: relative;
-  top: -1em;
+  position: absolute;
+  inset: auto auto auto var(--w-offset);
   display: flex;
   margin-left: 6px;
   width: fit-content;
+  transition: var(--HomepageNavBar-transition);
 }
 #HomepageMainMenu {
   display: flex;
@@ -114,9 +132,9 @@ body {
 #HomepageFooter {
   display: flex;
   position: absolute;
-  bottom: 0;
-  right: 0;
+  inset: auto auto 0 calc(100% - var(--footer-width));
   padding: 16px;
+  transition: var(--HomepageFooter-transition);
 }
 .ToHomepageButton {
   position: absolute;
@@ -135,9 +153,7 @@ body {
   width: 100%;
   position: absolute;
   inset: auto auto auto var(--sidebar-width);
-  transition-property: inset;
-  transition-duration: 480ms;
-  transition-timing-function: ease-out;
+  transition: var(--Content-transition);
 }
 
 .cursor-grabbing {cursor: grabbing;}

@@ -20,11 +20,12 @@ export default function App() {
   return (<>
     <div id='Homepage'>
       <HomepageHeader
+        ContentPage={ContentPage}
         begin_animation={KeyStates[0].KeyState}
         setNextAnimationState={KeyStates[1].setKeyState}
       />
       <div className='about-me'></div>
-      <HomepageNavBar Body={<>
+      <HomepageNavBar ContentPage={ContentPage} Body={<>
         <HomepageMainMenu ActiveMenu={ActiveMenu} Body={
           <>
             <HomepageNavItem
@@ -32,24 +33,28 @@ export default function App() {
               begin_animation={KeyStates[1].KeyState}
               setNextAnimationState={KeyStates[2].setKeyState}
               sendResponse={setActiveMenu}
+              ContentPage={ContentPage}
             />
             <HomepageNavItem
               title={data['homepage-navbar'][1].title}
               begin_animation={KeyStates[2].KeyState}
               setNextAnimationState={KeyStates[3].setKeyState}
               sendResponse={setActiveMenu}
+              ContentPage={ContentPage}
             />
             <HomepageNavItem
               title={data['homepage-navbar'][2].title}
               begin_animation={KeyStates[3].KeyState}
               setNextAnimationState={KeyStates[4].setKeyState}
               sendResponse={setActiveMenu}
+              ContentPage={ContentPage}
             />
           </>
         } />
         <HomepageSubMenu CurrentMenu={ActiveMenu} ContentPage={ContentPage} setContentPage={setContentPage} />
       </>} />
       <HomepageFooter
+        ContentPage={ContentPage}
         begin_animation={KeyStates[4].KeyState}
       />
     </div>

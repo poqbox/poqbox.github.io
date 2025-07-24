@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react"
 
 
-export default function HomepageFooter({begin_animation=true, setNextAnimationState=null}) {
+export default function HomepageFooter({ContentPage=null, begin_animation=true, setNextAnimationState=null}) {
   // hide the components until the animation begins
   const [Style1, setStyle1] = useState({opacity: 0})
   const [Style2, setStyle2] = useState({opacity: 0})
   const [Style3, setStyle3] = useState({opacity: 0})
+  const [ClassNames, setClassNames] = useState(null)
 
 
   // initial useEffect
@@ -18,10 +19,19 @@ export default function HomepageFooter({begin_animation=true, setNextAnimationSt
     }
   }, [begin_animation])
 
+
+  // useEffect for the component's transition animation
+  useEffect(() => {
+    if (ContentPage)
+      setClassNames("sidebar")
+    else
+      setClassNames(null)
+  }, [ContentPage])
+
   
   // return the React component
   return (
-    <footer id='HomepageFooter'>
+    <footer id='HomepageFooter' className={ClassNames}>
       <div className='footer-links'>
         <div className='footer-icon-container' style={Style1}>
           <a href='/'>
