@@ -19,7 +19,7 @@
 #HomepageNavBar.sidebar {inset: 204px auto auto -141px}
 #HomepageFooter.sidebar {inset: auto auto 0 0}
 .Content.hidden {inset: auto auto auto 100%}
-.Content.shown {box-shadow: 0 0 8px 8px}
+.Content.shown {inset: auto auto auto var(--sidebar-width); box-shadow: 0 0 8px 8px;}
 .HomepageNavItem.active {
   background-position: left;
   width: 100%;
@@ -163,7 +163,7 @@ body {
   height: 100%;
   width: var(--Content-width);
   position: absolute;
-  inset: auto auto auto var(--sidebar-width);
+  inset: auto auto auto 100%;
   transition: var(--Content-transition);
 }
 
