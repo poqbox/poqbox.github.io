@@ -79,7 +79,7 @@ export default function App() {
           <div style={{fontSize: "64px", marginBottom: "16px"}}>{"< under-construction >"}</div>
           <div>In the meantime,</div>
           <div>you can find me here:</div>
-          <div style={{marginTop: "24px", display: "flex", justifyContent: "center"}}>
+          <div style={{marginTop: "8px", display: "flex", justifyContent: "center"}}>
             <div className='footer-icon-container' style={{margin: "0 12px"}}>
               <a href='https://www.linkedin.com/in/liukevin223/' target='_blank'>
                 <img className='footer-icon linkedin' src='icons/linkedin.svg' />
