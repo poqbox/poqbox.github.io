@@ -26,12 +26,12 @@ export default function UnderConstructionPage({ContentPage, setContentPage}) {
         <div style={{marginTop: "8px", display: "flex", justifyContent: "center"}}>
           <div className='footer-icon-container' style={{margin: "0 12px"}}>
             <a href='https://www.linkedin.com/in/liukevin223/' target='_blank'>
-              <img className='footer-icon linkedin' src='icons/linkedin.svg' />
+              <img className='footer-icon linkedin' style={{transitionTimingFunction: "ease-out"}} src='icons/linkedin.svg' />
             </a>
           </div>
           <div className='footer-icon-container' style={{margin: "0 12px"}}>
             <a href='https://github.com/poqbox' target='_blank'>
-              <img className='footer-icon github' src='icons/github.svg' />
+              <img className='footer-icon github' style={{transitionTimingFunction: "ease-out"}} src='icons/github.svg' />
             </a>
           </div>
         </div>
