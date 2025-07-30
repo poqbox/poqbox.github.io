@@ -11,6 +11,24 @@ import HomepageFooter from './components/HomepageFooter.jsx'
 import Content from './components/Content.jsx'
 
 
+// functions for fetching data from backend
+const BASE_URL = import.meta.env.VITE_BASE_URL  // backend URL
+class Data {
+
+  static async fetchProjects() {
+    try {
+      const response = await fetch(BASE_URL + "/projects")
+      const data = await response.json()
+      return data
+    }
+    catch (error) {
+      console.log(error)
+    }
+  }
+
+}
+
+
 export default function App() {
   const KeyStates = useKeyStates(5, true)
   const [ActiveMenu, setActiveMenu] = useState(null)
