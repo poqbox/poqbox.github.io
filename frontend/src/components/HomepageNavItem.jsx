@@ -54,7 +54,7 @@ export default function HomepageNavItem({title, begin_animation=true, setNextAni
           style={{fontWeight: "bold"}}
           base_speed={60}
           max_text_cursor_blinks={0}
-          custom_ending_duration={60}
+          ending_duration={60}
           begin_animation={begin_animation}
           setNextAnimationState={setNextAnimationState}
         />

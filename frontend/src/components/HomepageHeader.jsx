@@ -21,7 +21,7 @@ export default function HomepageHeader({ContentPage=null, begin_animation=true, 
       <TypedText
         text="Hi, I'm Kevin"
         typing_delay={4000}
-        custom_ending_duration={3300}
+        ending_duration={3300}
         begin_animation={begin_animation}
         setNextAnimationState={setNextAnimationState}
       />
