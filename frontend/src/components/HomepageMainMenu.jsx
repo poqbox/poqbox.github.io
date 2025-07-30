@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import data from '../data/data'
 
 
-export default function HomepageMainMenu({ActiveMenu, Body}) {
+export default function HomepageMainMenu({ActiveMenu, children}) {
   // useEffect for determing the active menu
   useEffect(() => {
     if (ActiveMenu) {
@@ -22,7 +22,7 @@ export default function HomepageMainMenu({ActiveMenu, Body}) {
   // return the React component
   return (
     <div id="HomepageMainMenu">
-      {Body}
+      {children}
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 
-export default function HomepageNavBar({ContentPage=null, Body}) {
+export default function HomepageNavBar({ContentPage=null, children}) {
   const [ClassNames, setClassNames] = useState(null)
 
 
@@ -17,7 +17,7 @@ export default function HomepageNavBar({ContentPage=null, Body}) {
   // return the React component
   return (
     <nav id='HomepageNavBar' className={ClassNames}>
-      {Body}
+      {children}
     </nav>
   )
 }

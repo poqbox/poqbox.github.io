@@ -43,41 +43,39 @@ export default function App() {
         setNextAnimationState={KeyStates[1].setKeyState}
       />
       <div className='about-me'></div>
-      <HomepageNavBar ContentPage={ContentPage} Body={<>
-        <HomepageMainMenu ActiveMenu={ActiveMenu} Body={
-          <>
-            <HomepageNavItem
-              title={data['homepage-navbar'][0].title}
-              begin_animation={KeyStates[1].KeyState}
-              setNextAnimationState={KeyStates[2].setKeyState}
-              sendResponse={setActiveMenu}
-              ContentPage={ContentPage}
-            />
-            <HomepageNavItem
-              title={data['homepage-navbar'][1].title}
-              begin_animation={KeyStates[2].KeyState}
-              setNextAnimationState={KeyStates[3].setKeyState}
-              sendResponse={setActiveMenu}
-              ContentPage={ContentPage}
-            />
-            <HomepageNavItem
-              title={data['homepage-navbar'][2].title}
-              begin_animation={KeyStates[3].KeyState}
-              setNextAnimationState={KeyStates[4].setKeyState}
-              sendResponse={setActiveMenu}
-              ContentPage={ContentPage}
-            />
-          </>
-        } />
+      <HomepageNavBar ContentPage={ContentPage}>
+        <HomepageMainMenu ActiveMenu={ActiveMenu}>
+          <HomepageNavItem
+            title={data['homepage-navbar'][0].title}
+            begin_animation={KeyStates[1].KeyState}
+            setNextAnimationState={KeyStates[2].setKeyState}
+            sendResponse={setActiveMenu}
+            ContentPage={ContentPage}
+          />
+          <HomepageNavItem
+            title={data['homepage-navbar'][1].title}
+            begin_animation={KeyStates[2].KeyState}
+            setNextAnimationState={KeyStates[3].setKeyState}
+            sendResponse={setActiveMenu}
+            ContentPage={ContentPage}
+          />
+          <HomepageNavItem
+            title={data['homepage-navbar'][2].title}
+            begin_animation={KeyStates[3].KeyState}
+            setNextAnimationState={KeyStates[4].setKeyState}
+            sendResponse={setActiveMenu}
+            ContentPage={ContentPage}
+          />
+        </HomepageMainMenu>
         <HomepageSubMenu CurrentMenu={ActiveMenu} ContentPage={ContentPage} setContentPage={setContentPage} />
-      </>} />
+      </HomepageNavBar>
       <HomepageFooter
         ContentPage={ContentPage}
         begin_animation={KeyStates[4].KeyState}
       />
     </div>
 
-    <Content show={ContentPage} setCurrentPage={setContentPage} Body={
+    <Content show={ContentPage} setCurrentPage={setContentPage}>
       <div style={{
         height: "100%",
         backgroundImage: "linear-gradient( #ffcc55, #ff8888 96%, #ff6f44 96% )",
@@ -111,6 +109,6 @@ export default function App() {
           </div>
         </div>
       </div>
-    } />
+    </Content>
   </>)
 }

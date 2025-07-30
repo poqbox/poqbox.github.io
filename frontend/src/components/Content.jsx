@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 
-export default function Content({show=true, setCurrentPage=null, Body=null}) {
+export default function Content({show=true, setCurrentPage=null, children}) {
   const [ClassNames, setClassNames] = useState("")
 
 
@@ -20,7 +20,7 @@ export default function Content({show=true, setCurrentPage=null, Body=null}) {
   // return the React component
   return (
     <div className={`Content${ClassNames}`}>
-      {Body}
+      {children}
     </div>
   )
 }
