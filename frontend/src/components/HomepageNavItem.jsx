@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import TypedText from './TypedText'
 
 
-export default function HomepageNavItem({title, begin_animation=true, setNextAnimationState=null, sendResponse=null, ContentPage=null}) {
+export default function HomepageNavItem({title, begin_animation=true, setNextAnimationState=null, sendResponse=null, CurrentPage=null}) {
   const [Title, setTitle] = useState(title)
   const [Style, setStyle] = useState({height: 0, padding: 0}) // hide the component until the animation begins
 
@@ -21,7 +21,7 @@ export default function HomepageNavItem({title, begin_animation=true, setNextAni
   }
   function onMouseUpHandler(e) {
     e.currentTarget.classList.remove("cursor-grabbing")
-    if (!ContentPage && sendResponse) {
+    if (!CurrentPage && sendResponse) {
       if (!e.currentTarget.classList.contains("active")) {
         sendResponse(Title)
       }

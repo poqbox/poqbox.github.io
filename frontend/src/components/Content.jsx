@@ -2,16 +2,16 @@ import { useState, useEffect } from "react"
 import UnderConstructionPage from "./UnderConstructionPage"
 
 
-export default function Content({style=null, ContentPage=true}) {
+export default function Content({style=null, CurrentPage=true}) {
   const [ClassNames, setClassNames] = useState("")
   const [Page, setPage] = useState(null)
 
 
   // useEffect for the component's hiding animation
   useEffect(() => {
-    if (ContentPage) {
+    if (CurrentPage) {
       setClassNames(" shown")
-      switch (ContentPage) {
+      switch (CurrentPage) {
         default:
           setPage(<UnderConstructionPage />)
           break
@@ -19,7 +19,7 @@ export default function Content({style=null, ContentPage=true}) {
     }
     else
       setClassNames(" hidden")
-  }, [ContentPage])
+  }, [CurrentPage])
 
 
   // return the React component

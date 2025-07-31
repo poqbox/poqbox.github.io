@@ -2,17 +2,17 @@ import { useState, useEffect } from "react"
 import TypedText from "./TypedText"
 
 
-export default function HomepageHeader({ContentPage=null, begin_animation=true, setNextAnimationState=null}) {
+export default function HomepageHeader({CurrentPage=null, begin_animation=true, setNextAnimationState=null}) {
   const [ClassNames, setClassNames] = useState(null)
 
 
   // useEffect for the component's hiding animation
   useEffect(() => {
-    if (ContentPage)
+    if (CurrentPage)
       setClassNames("hidden")
     else
       setClassNames(null)
-  }, [ContentPage])
+  }, [CurrentPage])
 
 
   // return the React component

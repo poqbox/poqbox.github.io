@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react"
 
 
-export default function HomepageNavBar({ContentPage=null, children}) {
+export default function HomepageNavBar({CurrentPage=null, children}) {
   const [ClassNames, setClassNames] = useState(null)
 
 
   // useEffect for the component's transition animation
   useEffect(() => {
-    if (ContentPage)
+    if (CurrentPage)
       setClassNames("sidebar")
     else
       setClassNames(null)
-  }, [ContentPage])
+  }, [CurrentPage])
 
 
   // return the React component

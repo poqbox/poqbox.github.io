@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 
-export default function HomepageFooter({ContentPage=null, begin_animation=true, setNextAnimationState=null}) {
+export default function HomepageFooter({CurrentPage=null, begin_animation=true, setNextAnimationState=null}) {
   // hide the components until the animation begins
   const [Style1, setStyle1] = useState({opacity: 0})
   const [Style2, setStyle2] = useState({opacity: 0})
@@ -22,11 +22,11 @@ export default function HomepageFooter({ContentPage=null, begin_animation=true, 
 
   // useEffect for the component's transition animation
   useEffect(() => {
-    if (ContentPage)
+    if (CurrentPage)
       setClassNames("sidebar")
     else
       setClassNames(null)
-  }, [ContentPage])
+  }, [CurrentPage])
 
   
   // return the React component

@@ -4,7 +4,7 @@ import data from '../data/data'
 import ToHomepageButton from "./ToHomepageButton"
 
 
-export default function HomepageSubMenu({CurrentMenu=null, ContentPage=null, setContentPage=null}) {
+export default function HomepageSubMenu({CurrentMenu=null, CurrentPage=null, setCurrentPage=null}) {
   const [MenuList, setMenuList] = useState([])
 
 
@@ -43,14 +43,14 @@ export default function HomepageSubMenu({CurrentMenu=null, ContentPage=null, set
 
   // event handlers
   function handleOnClick() {
-    setContentPage("WIP")
+    setCurrentPage("WIP")
   }
 
 
   // return the React component
   return (
     <div id="HomepageSubMenu">
-      {(ContentPage) ? <ToHomepageButton setContentPage={setContentPage} /> : null}
+      {(CurrentPage) ? <ToHomepageButton setCurrentPage={setCurrentPage} /> : null}
       {MenuList}
     </div>
   )
