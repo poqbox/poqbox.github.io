@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import UnderConstructionPage from "./UnderConstructionPage"
+import UnderConstructionPage from "./Pages/UnderConstructionPage"
 
 
 export default function Content({style=null, CurrentPage=true}) {
