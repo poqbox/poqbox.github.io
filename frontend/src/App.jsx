@@ -13,7 +13,7 @@ import Content from './components/Content.jsx'
 
 // functions for fetching data from backend
 const BASE_URL = import.meta.env.VITE_BASE_URL  // backend URL
-class Data {
+class DB {
 
   static async fetchProjects() {
     try {
