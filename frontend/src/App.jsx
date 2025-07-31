@@ -8,7 +8,7 @@ import HomepageNavItem from './components/HomepageNavItem'
 import HomepageSubMenu from './components/HomepageSubMenu'
 import HomepageMainMenu from './components/HomepageMainMenu.jsx'
 import HomepageFooter from './components/HomepageFooter.jsx'
-import UnderConstructionPage from './components/UnderConstructionPage.jsx'
+import Content from './components/Content.jsx'
 
 
 // functions for fetching data from backend
@@ -75,6 +75,6 @@ export default function App() {
       />
     </div>
 
-    <UnderConstructionPage ContentPage={ContentPage} setContentPage={setContentPage} />
+    <Content ContentPage={ContentPage} />
   </>)
 }

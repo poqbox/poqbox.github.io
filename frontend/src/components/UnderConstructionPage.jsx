@@ -1,12 +1,10 @@
-import Content from "./Content"
-
-
-export default function UnderConstructionPage({ContentPage, setContentPage}) {
+export default function UnderConstructionPage() {
   return (
-    <Content
-      style={{backgroundImage: "linear-gradient( #ffcc55, #ff8888 96%, #ff6f44 96% )"}}
-      show={ContentPage}
-      setCurrentPage={setContentPage}
+    <div
+      style={{
+        height: "100%",
+        backgroundImage: "linear-gradient( #ffcc55, #ff8888 96%, #ff6f44 96% )"
+      }}
     >
       <div style={{
         color: "white",
@@ -36,6 +34,6 @@ export default function UnderConstructionPage({ContentPage, setContentPage}) {
           </div>
         </div>
       </div>
-    </Content>
+    </div>
   )
 }

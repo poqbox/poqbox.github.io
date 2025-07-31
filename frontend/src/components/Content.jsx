@@ -1,26 +1,31 @@
 import { useState, useEffect } from "react"
+import UnderConstructionPage from "./UnderConstructionPage"
 
 
-export default function Content({style=null, show=true, setCurrentPage=null, children}) {
+export default function Content({style=null, ContentPage=true}) {
   const [ClassNames, setClassNames] = useState("")
+  const [Page, setPage] = useState(null)
 
 
   // useEffect for the component's hiding animation
   useEffect(() => {
-    if (show) {
-      if (setCurrentPage)
-        setCurrentPage("Content")
+    if (ContentPage) {
       setClassNames(" shown")
+      switch (ContentPage) {
+        default:
+          setPage(<UnderConstructionPage />)
+          break
+      }
     }
     else
       setClassNames(" hidden")
-  }, [show])
+  }, [ContentPage])
 
 
   // return the React component
   return (
     <div className={`Content${ClassNames}`} style={style}>
-      {children}
+      {Page}
     </div>
   )
 }
