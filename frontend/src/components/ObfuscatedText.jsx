@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 
-export default function ObfuscatedText({length=1, speed=60, style={}, AnimationState=true}) {
+export default function ObfuscatedText({length=1, speed=60, className="", style={}, AnimationState=true}) {
   // React objects
   // list of characters to be used in the obfuscated animation
   const [characters, setCharacters] = useState([
@@ -10,6 +10,7 @@ export default function ObfuscatedText({length=1, speed=60, style={}, AnimationS
     "?","!","@","#","$","%","^","&","*","(",")","_","-","+","=","[","]","{","}"
   ])
 
+  const [ClassNames, setClassNames] = useState(`ObfuscatedText ${className}`.trim())
   const [Speed, setSpeed] = useState(speed)
   const [Style, setStyle] = useState({fontFamily: "monospace", ...style})
   const [Text, setText] = useState("")
@@ -45,7 +46,7 @@ export default function ObfuscatedText({length=1, speed=60, style={}, AnimationS
 
   // return the React component
   return (
-    <span className="ObfuscatedText" style={Style}>
+    <span className={ClassNames} style={Style}>
       {Text}
     </span>
   )
