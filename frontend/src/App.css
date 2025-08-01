@@ -109,8 +109,6 @@ body {
   transition-timing-function: ease-in;
 }
 #HomepageFooter {
-  display: flex;
-  flex-wrap: wrap;
   position: absolute;
   inset: auto auto 0 calc(100% - var(--footer-width));
   margin-left: 8px;
