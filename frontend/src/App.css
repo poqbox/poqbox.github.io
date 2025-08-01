@@ -215,4 +215,5 @@ body {
   height: 20px;
   width: 100%;
   padding-left: 4px;
+  text-shadow: 0 0 1px lightgray;
 }
