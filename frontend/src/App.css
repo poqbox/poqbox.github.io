@@ -165,6 +165,10 @@ body {
   inset: auto auto auto 100%;
   transition: var(--Content-transition);
 }
+.ProjectPage {
+  height: 100%;
+  padding: 16px;
+}
 
 #Homepage > .about-me {
   height: 100px;
