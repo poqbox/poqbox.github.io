@@ -110,9 +110,11 @@ body {
 }
 #HomepageFooter {
   display: flex;
+  flex-wrap: wrap;
   position: absolute;
   inset: auto auto 0 calc(100% - var(--footer-width));
-  padding: 16px 0;
+  margin-left: 8px;
+  padding-bottom: 8px;
   transition: var(--HomepageFooter-transition);
 }
 
@@ -172,8 +174,8 @@ body {
 }
 
 .footer-links {
+  flex-basis: 100%;
   display: flex;
-  margin-left: 8px;
   gap: 10px;
 }
 .footer-icon-container {
