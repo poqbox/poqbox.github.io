@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import TypedText from "./TypedText"
 
 
 export default function HomepageFooter({CurrentPage=null, begin_animation=true, setNextAnimationState=null}) {
@@ -6,6 +7,7 @@ export default function HomepageFooter({CurrentPage=null, begin_animation=true, 
   const [Style1, setStyle1] = useState({opacity: 0})
   const [Style2, setStyle2] = useState({opacity: 0})
   const [Style3, setStyle3] = useState({opacity: 0})
+  const [showTechStack, setShowTechStack] = useState(false)
   const [ClassNames, setClassNames] = useState(null)
 
 
@@ -16,6 +18,7 @@ export default function HomepageFooter({CurrentPage=null, begin_animation=true, 
       setTimeout(() => { setStyle1(null) }, 0)
       setTimeout(() => { setStyle2(null) }, 60)
       setTimeout(() => { setStyle3(null) }, 120)
+      setTimeout(() => { setShowTechStack(true) }, 2400)
     }
   }, [begin_animation])
 
@@ -49,6 +52,12 @@ export default function HomepageFooter({CurrentPage=null, begin_animation=true, 
           </a>
         </div>
       </div>
+      <TypedText
+        className="made-with"
+        text="Made with React.js"
+        use_text_cursor={false}
+        begin_animation={showTechStack}
+      />
     </footer>
   )
 }

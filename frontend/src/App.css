@@ -112,7 +112,6 @@ body {
   position: absolute;
   inset: auto auto 0 calc(100% - var(--footer-width));
   margin-left: 8px;
-  padding-bottom: 8px;
   transition: var(--HomepageFooter-transition);
 }
 
@@ -203,4 +202,13 @@ body {
   }
   .footer-icon.linkedin { max-height: 26px; }
   .footer-icon.linkedin:hover { max-height: 30px; }
+}
+.made-with {
+  font-family: Calibri;
+  font-style: italic;
+  color: gray;
+  margin-top: 4px;
+  height: 20px;
+  width: 100%;
+  padding-left: 4px;
 }
