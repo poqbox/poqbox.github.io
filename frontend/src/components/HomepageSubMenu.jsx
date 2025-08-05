@@ -14,10 +14,7 @@ export default function HomepageSubMenu({CurrentMenu=null, CurrentPage=null, set
       case data["homepage-navbar"][0].title:
         setMenuList([
           <a className="HomepageNavSubItem" onClick={handleOnClick}>
-            Undergoing
-          </a>,
-          <a className="HomepageNavSubItem" onClick={handleOnClick}>
-            construction
+            Undergoing construction
           </a>
         ])
         break
