@@ -1,7 +1,7 @@
 :root {
   --Homepage-max-width: 1280px;
   --HomepageHeader-width: 520px;
-  --sidebar-width: 240px;
+  --sidebar-width: 200px;
   --footer-width: 160px;
   --w-offset: max( calc((100vw - var(--Homepage-max-width)) / 2) , 0px);
   --Content-width: calc(100vw - var(--sidebar-width));
