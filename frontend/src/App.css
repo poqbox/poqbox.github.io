@@ -8,16 +8,28 @@
   /***IMPORTANT**
     Transitions don't work with auto
     **IMPORTANT***/
-  --HomepageHeader-transition: inset 480ms ease-out 320ms;
-  --HomepageNavBar-transition: inset 240ms ease-out 240ms;
-  --HomepageFooter-transition: inset 480ms ease-out 40ms;
+  --HomepageHeader-transition: inset 480ms ease-in-out;
+  --HomepageNavBar-transition: inset 360ms ease-in-out;
+  --HomepageFooter-transition: inset 480ms ease-in-out;
   --ToHomepageButton-transition: opacity 300ms ease-in-out 300ms,
                         background-color 240ms ease-in;
   --Content-transition: inset 480ms ease-out;
+  --HomepageHeader-toHidden-transition: inset 480ms ease-out 320ms;
+  --HomepageNavBar-toSidebar-transition: inset 360ms ease-out 360ms;
+  --HomepageFooter-toSidebar-transition: inset 480ms ease-out 40ms;
 }
-#HomepageHeader.hidden {inset: auto calc(var(--w-offset) + var(--HomepageHeader-width)) auto auto}
-#HomepageNavBar.sidebar {inset: 204px auto auto -141px}
-#HomepageFooter.sidebar {inset: auto auto 0 0}
+#HomepageHeader.hidden {
+  inset: auto calc(var(--w-offset) + var(--HomepageHeader-width)) auto auto;
+  transition: var(--HomepageHeader-toHidden-transition);
+}
+#HomepageNavBar.sidebar {
+  inset: 204px auto auto -141px;
+  transition: var(--HomepageNavBar-toSidebar-transition);
+}
+#HomepageFooter.sidebar {
+  inset: auto auto 0 0;
+  transition: var(--HomepageFooter-toSidebar-transition);
+}
 .Content.hidden {inset: auto auto auto 100%}
 .Content.shown {inset: auto auto auto var(--sidebar-width); box-shadow: 0 0 8px 8px;}
 .HomepageNavItem.active {
