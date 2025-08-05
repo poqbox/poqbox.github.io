@@ -13,7 +13,7 @@ export default function HomepageSubMenu({CurrentMenu=null, CurrentPage=null, set
     switch (CurrentMenu) {
       case data["homepage-navbar"][0].title:
         setMenuList([
-          <a className="HomepageNavSubItem" onClick={handleOnClick}>
+          <a className="HomepageNavSubItem" onClick={ () => {setCurrentPage("WIP")} }>
             Undergoing construction
           </a>
         ])
@@ -30,7 +30,7 @@ export default function HomepageSubMenu({CurrentMenu=null, CurrentPage=null, set
         break
       case data["homepage-navbar"][2].title:
         setMenuList([
-          <a className="HomepageNavSubItem" onClick={handleOnClick}>
+          <a className="HomepageNavSubItem" onClick={ () => {setCurrentPage("WIP")} }>
             ETA: <ObfuscatedText length={2} speed={120} style={{fontFamily: "inherit"}} />
           </a>
         ])
@@ -50,9 +50,6 @@ export default function HomepageSubMenu({CurrentMenu=null, CurrentPage=null, set
       href: e.currentTarget.getAttribute("href")
     }
     setCurrentPage(pageData)
-  }
-  function handleOnClick() {
-    setCurrentPage("WIP")
   }
 
 
