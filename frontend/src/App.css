@@ -3,6 +3,7 @@
   --HomepageHeader-width: 520px;
   --sidebar-width: 200px;
   --footer-width: 160px;
+  --sidebar-offset: -180px;
   --w-offset: max( calc((100vw - var(--Homepage-max-width)) / 2) , 0px);
   --Content-width: calc(100vw - var(--sidebar-width));
   /***IMPORTANT**
@@ -23,7 +24,7 @@
   transition: var(--HomepageHeader-toHidden-transition);
 }
 #HomepageNavBar.sidebar {
-  inset: 204px auto auto -141px;
+  inset: 204px auto auto var(--sidebar-offset);
   transition: var(--HomepageNavBar-toSidebar-transition);
 }
 #HomepageFooter.sidebar {
