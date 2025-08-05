@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import IframePage from "./Pages/IframePage"
 import UnderConstructionPage from "./Pages/UnderConstructionPage"
 
 
@@ -11,11 +12,28 @@ export default function Content({style=null, CurrentPage=true}) {
   useEffect(() => {
     if (CurrentPage) {
       setClassNames(" shown")
-      switch (CurrentPage) {
-        default:
-          setPage(<UnderConstructionPage />)
-          break
+
+      // prepare Content page
+      // if CurrentPage is an object, compare its properties
+      if (typeof CurrentPage === "object") {
+        switch (CurrentPage.type) {
+          // use an iframe if CurrentPage contains a URL
+          case "href":
+            setPage(<IframePage href={CurrentPage.href} title={CurrentPage.title} />)
+            break
+          default:
+            setPage(<UnderConstructionPage />)
+            break
+        }
       }
+      else {
+        switch (CurrentPage) {
+          default:
+            setPage(<UnderConstructionPage />)
+            break
+        }
+      }
+
     }
     else
       setClassNames(" hidden")

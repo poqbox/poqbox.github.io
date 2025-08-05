@@ -20,8 +20,11 @@ export default function HomepageSubMenu({CurrentMenu=null, CurrentPage=null, set
         break
       case data["homepage-navbar"][1].title:
         setMenuList([
-          <a className="HomepageNavSubItem" onClick={handleOnClick}>
-            Constructing...
+          <a className="HomepageNavSubItem" href="https://poqbox.github.io/consoles-in-space/" onClick={handleHyperlink}>
+            Consoles in Space
+          </a>,
+          <a className="HomepageNavSubItem" href="https://poqbox.github.io/playing-cards/" onClick={handleHyperlink}>
+            Cardception
           </a>
         ])
         break
@@ -39,6 +42,15 @@ export default function HomepageSubMenu({CurrentMenu=null, CurrentPage=null, set
 
 
   // event handlers
+  function handleHyperlink(e) {
+    e.preventDefault()
+    const pageData = {
+      type: "href",
+      title: e.currentTarget.textContent,
+      href: e.currentTarget.getAttribute("href")
+    }
+    setCurrentPage(pageData)
+  }
   function handleOnClick() {
     setCurrentPage("WIP")
   }
