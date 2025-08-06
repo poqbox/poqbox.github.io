@@ -2,10 +2,10 @@
   --Homepage-max-width: 1280px;
   --HomepageHeader-width: 520px;
   --HomepageSubMenu-x-padding: 8px;
-  --sidebar-width: 220px;
-  --footer-width: 160px;
-  --sidebar-offset: -182px;
   --w-offset: max( calc((100vw - var(--Homepage-max-width) - var(--HomepageSubMenu-x-padding) * 2) / 2) , 0px);
+  --sidebar-width: 220px;
+  --sidebar-offset: -182px;
+  --footer-width: 160px;
   --HomepageHeader-inset: calc(var(--w-offset) + var(--HomepageHeader-width));
   --Content-width: calc(100vw - var(--sidebar-width));
   --Content-inset: calc(var(--sidebar-width) + var(--HomepageSubMenu-x-padding) * 2);
