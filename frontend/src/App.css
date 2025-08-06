@@ -134,12 +134,12 @@ body {
 
 .HomepageNavItem {
   display: block;
+  user-select: none;
   height: 1.5em;
   margin: 0.32em 0;
   padding: 4px 8px;
   border-radius: 0 20% 20% 0;
   box-shadow: -3.2px 0 1.2px -1.2px gray;
-  user-select: none;
 }
 .HomepageNavSubItem {
   padding: 2px 16px;
@@ -163,6 +163,7 @@ body {
 .ToHomepageButton {
   filter: invert(100%);
   position: absolute;
+  user-select: none;
   top: -40px;
   height: 24px;
   border-radius: 12px;
@@ -211,6 +212,7 @@ body {
   transition-timing-function: ease-in;
 
   .footer-icon {
+    user-select: none;
     max-height: 30px;
     margin: auto;
     vertical-align: middle;
