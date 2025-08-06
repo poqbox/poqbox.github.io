@@ -127,6 +127,20 @@ iframe {
   transition-property: opacity;
   transition-duration: 160ms;
   transition-timing-function: ease-in;
+
+  hr {
+    flex-grow: 0;
+    width: 92%;
+    margin: 8px;
+    border: 1px solid;
+  }
+  .hr-top {box-shadow: 0 2px 16px 4px white;}
+  .hr-bottom {box-shadow: 0 -2px 16px 4px white;}
+}
+#HomepageSubMenuItems {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 #HomepageFooter {
   position: absolute;

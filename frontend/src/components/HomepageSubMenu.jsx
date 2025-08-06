@@ -57,7 +57,11 @@ export default function HomepageSubMenu({CurrentMenu=null, CurrentPage=null, set
   return (
     <div id="HomepageSubMenu">
       {(CurrentPage) ? <ToHomepageButton setCurrentPage={setCurrentPage} /> : null}
-      {MenuList}
+      <hr className="hr-top" />
+      <div id="HomepageSubMenuItems">
+        {MenuList}
+      </div>
+      <hr className="hr-bottom" />
     </div>
   )
 }
