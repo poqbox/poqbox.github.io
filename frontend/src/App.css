@@ -27,7 +27,7 @@
   transition: var(--HomepageHeader-toHidden-transition);
 }
 #HomepageNavBar.sidebar {
-  inset: 204px auto auto var(--sidebar-offset);
+  inset: auto auto 120px var(--sidebar-offset);
   transition: var(--HomepageNavBar-toSidebar-transition);
 }
 #HomepageFooter.sidebar {
@@ -101,7 +101,7 @@ iframe {
 }
 #HomepageNavBar {
   position: absolute;
-  inset: 204px auto auto var(--w-offset);
+  inset: auto auto 120px var(--w-offset);
   display: flex;
   margin-left: 6px;
   width: fit-content;
@@ -120,7 +120,7 @@ iframe {
   flex-direction: column;
   overflow: hidden;
   width: var(--sidebar-width);
-  height: 9.6em;
+  height: 11.5em;
   font-size: 24px;
   margin-left: 16px;
   padding: var(--HomepageSubMenu-x-padding);
