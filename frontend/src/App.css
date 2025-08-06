@@ -84,7 +84,7 @@ iframe {
   display: inline-block;
   height: 1.3em;
   margin: 0;
-  max-width: 100%;
+  max-width: 100vw;
   white-space: pre;
   overflow: scroll hidden;
   scrollbar-width: none;
