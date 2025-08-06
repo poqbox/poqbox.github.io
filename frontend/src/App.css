@@ -71,6 +71,9 @@ body {
 #Homepage::selection {
   background-color: #2f4f77;
 }
+iframe {
+  background-color: #222222;
+}
 
 
 .TypedText {
