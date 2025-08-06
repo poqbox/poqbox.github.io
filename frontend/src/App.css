@@ -68,6 +68,9 @@ body {
   margin: auto;
   padding: 10px;
 }
+#Homepage::selection {
+  background-color: #2f4f77;
+}
 
 
 .TypedText {
