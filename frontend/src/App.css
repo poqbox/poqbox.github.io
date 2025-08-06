@@ -31,7 +31,7 @@
   inset: auto auto 0 0;
   transition: var(--HomepageFooter-toSidebar-transition);
 }
-.Content.hidden {inset: auto auto auto 100%}
+.Content.hidden {inset: auto auto auto 100%;}
 .Content.shown {inset: auto auto auto var(--sidebar-width); box-shadow: 0 0 8px 4px;}
 .HomepageNavItem.active {
   background-position: left;
@@ -112,8 +112,8 @@ body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  width: var(--sidebar-width);
   overflow: hidden;
+  width: var(--sidebar-width);
   height: 9.6em;
   font-size: 24px;
   margin-left: 16px;
@@ -169,7 +169,7 @@ body {
   border-radius: 12px;
   padding: 4px;
   opacity: 0.75;
-  transition: var(--ToHomepageButton-transition)
+  transition: var(--ToHomepageButton-transition);
 }
 .ToHomepageButton:hover {
   cursor: pointer;
