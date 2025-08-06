@@ -4,7 +4,7 @@
   --HomepageSubMenu-x-padding: 8px;
   --sidebar-width: 220px;
   --footer-width: 160px;
-  --sidebar-offset: -180px;
+  --sidebar-offset: -182px;
   --w-offset: max( calc((100vw - var(--Homepage-max-width) - var(--HomepageSubMenu-x-padding) * 2) / 2) , 0px);
   --Content-width: calc(100vw - var(--sidebar-width));
   --Content-inset: calc(var(--sidebar-width) + var(--HomepageSubMenu-x-padding) * 2);
