@@ -6,6 +6,7 @@
   --footer-width: 160px;
   --sidebar-offset: -182px;
   --w-offset: max( calc((100vw - var(--Homepage-max-width) - var(--HomepageSubMenu-x-padding) * 2) / 2) , 0px);
+  --HomepageHeader-inset: calc(var(--w-offset) + var(--HomepageHeader-width));
   --Content-width: calc(100vw - var(--sidebar-width));
   --Content-inset: calc(var(--sidebar-width) + var(--HomepageSubMenu-x-padding) * 2);
   /***IMPORTANT**
@@ -22,7 +23,7 @@
   --HomepageFooter-toSidebar-transition: inset 480ms ease-out 40ms;
 }
 #HomepageHeader.hidden {
-  inset: auto calc(var(--w-offset) + var(--HomepageHeader-width)) auto auto;
+  inset: auto var(--HomepageHeader-inset) auto auto;
   transition: var(--HomepageHeader-toHidden-transition);
 }
 #HomepageNavBar.sidebar {
