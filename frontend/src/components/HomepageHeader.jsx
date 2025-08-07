@@ -2,9 +2,18 @@ import { useState, useEffect } from "react"
 import TypedText from "./TypedText"
 
 
-export default function HomepageHeader({CurrentPage=null, begin_animation=true, setNextAnimationState=null}) {
+export default function HomepageHeader({CurrentPage=null, obscur=false, begin_animation=true, setNextAnimationState=null}) {
   const [ClassNames, setClassNames] = useState(null)
+  const [Style, setStyle] = useState(null)
 
+
+  // useEffect for obscuring the component
+  useEffect(() => {
+    if (obscur)
+      setStyle({filter: "blur(2px)"})
+    else
+      setStyle(null)
+  }, [obscur])
 
   // useEffect for the component's hiding animation
   useEffect(() => {
@@ -17,7 +26,7 @@ export default function HomepageHeader({CurrentPage=null, begin_animation=true, 
 
   // return the React component
   return (
-    <header id="HomepageHeader" className={ClassNames}>
+    <header id="HomepageHeader" className={ClassNames} style={Style}>
       <TypedText
         className="title"
         text="Hi, I'm Kevin"

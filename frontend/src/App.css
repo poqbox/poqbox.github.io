@@ -97,7 +97,7 @@ iframe {
   width: var(--HomepageHeader-width);
   font-size: 80px;
   font-weight: bold;
-  transition: var(--HomepageHeader-transition);
+  transition: filter 480ms ease-out 80ms, var(--HomepageHeader-transition);
 }
 #HomepageNavBar {
   position: absolute;

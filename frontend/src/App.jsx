@@ -39,6 +39,7 @@ export default function App() {
     <div id='Homepage'>
       <HomepageHeader
         CurrentPage={CurrentPage}
+        obscur={ActiveMenu}
         begin_animation={KeyStates[0].KeyState}
         setNextAnimationState={KeyStates[1].setKeyState}
       />
