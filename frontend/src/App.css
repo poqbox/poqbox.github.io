@@ -112,7 +112,7 @@ iframe {
 #HomepageMainMenu {
   font-family: Helvetica, Arial, sans-serif;
   position: relative;
-  top: 36%;
+  top: max(36%, 132px);
   display: flex;
   flex-direction: column;
   justify-content: center;
