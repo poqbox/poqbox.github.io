@@ -19,6 +19,7 @@ export default function HomepageHeader({CurrentPage=null, begin_animation=true, 
   return (
     <header id="HomepageHeader" className={ClassNames}>
       <TypedText
+        className="title"
         text="Hi, I'm Kevin"
         typing_delay={4000}
         ending_duration={3300}
