@@ -6,9 +6,9 @@
   --sidebar-width: 220px;
   --sidebar-offset: -182px;
   --footer-width: 160px;
-  --HomepageHeader-inset: calc(var(--w-offset) + var(--HomepageHeader-width));
+  --HomepageHeader-right: calc(var(--w-offset) + var(--HomepageHeader-width));
   --Content-width: calc(100vw - var(--sidebar-width));
-  --Content-inset: calc(var(--sidebar-width) + var(--HomepageSubMenu-x-padding) * 2);
+  --Content-left: calc(var(--sidebar-width) + var(--HomepageSubMenu-x-padding) * 2);
   /***IMPORTANT**
     Transitions don't work with auto
     **IMPORTANT***/
@@ -23,7 +23,7 @@
   --HomepageFooter-toSidebar-transition: inset 480ms ease-out 40ms;
 }
 #HomepageHeader.hidden {
-  inset: auto var(--HomepageHeader-inset) auto auto;
+  inset: auto var(--HomepageHeader-right) auto auto;
   transition: var(--HomepageHeader-toHidden-transition);
 }
 #HomepageNavBar.sidebar {
@@ -35,7 +35,7 @@
   transition: var(--HomepageFooter-toSidebar-transition);
 }
 .Content.hidden {inset: auto auto auto 100%;}
-.Content.shown {inset: auto auto auto var(--Content-inset); box-shadow: 0 0 8px 4px;}
+.Content.shown {inset: auto auto auto var(--Content-left); box-shadow: 0 0 8px 4px;}
 .HomepageNavItem.active {
   background-position: left;
   width: 100%;
@@ -112,7 +112,7 @@ iframe {
 #HomepageMainMenu {
   font-family: Helvetica, Arial, sans-serif;
   position: relative;
-  top: 240px;
+  top: 36%;
   display: flex;
   flex-direction: column;
   justify-content: center;
