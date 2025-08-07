@@ -27,7 +27,7 @@
   transition: var(--HomepageHeader-toHidden-transition);
 }
 #HomepageNavBar.sidebar {
-  inset: auto auto 120px var(--sidebar-offset);
+  inset: 0 auto auto var(--sidebar-offset);
   transition: var(--HomepageNavBar-toSidebar-transition);
 }
 #HomepageFooter.sidebar {
@@ -101,14 +101,18 @@ iframe {
 }
 #HomepageNavBar {
   position: absolute;
-  inset: auto auto 120px var(--w-offset);
+  inset: 0 auto auto var(--w-offset);
   display: flex;
+  align-items: start;
+  height: 100%;
   margin-left: 6px;
   width: fit-content;
   transition: var(--HomepageNavBar-transition);
 }
 #HomepageMainMenu {
   font-family: Helvetica, Arial, sans-serif;
+  position: relative;
+  top: 240px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -116,9 +120,10 @@ iframe {
 }
 #HomepageSubMenu {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  position: absolute;
+  inset: 160px auto auto auto;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   width: var(--sidebar-width);
   height: 11.5em;
   font-size: 24px;

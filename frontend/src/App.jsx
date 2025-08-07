@@ -67,7 +67,9 @@ export default function App() {
             CurrentPage={CurrentPage}
           />
         </HomepageMainMenu>
-        <HomepageSubMenu CurrentMenu={ActiveMenu} CurrentPage={CurrentPage} setCurrentPage={setCurrentPage} />
+        <div id='submenu-container'>
+          <HomepageSubMenu CurrentMenu={ActiveMenu} CurrentPage={CurrentPage} setCurrentPage={setCurrentPage} />
+        </div>
       </HomepageNavBar>
       <HomepageFooter
         CurrentPage={CurrentPage}
