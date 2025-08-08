@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import data from './data/data'
 import useKeyStates from './util/useKeyStates'
@@ -31,8 +31,32 @@ class DB {
 
 export default function App() {
   const KeyStates = useKeyStates(5, true)
+  const [StartupAnimationState, setStartupAnimationState] = useState(false)
   const [ActiveMenu, setActiveMenu] = useState(null)
   const [CurrentPage, setCurrentPage] = useState(null)
+
+
+  // useEffect for fast-forwarding the startup animation
+  useEffect(() => {
+    // add event handler for fast-forwarding the startup animation
+    if (!StartupAnimationState)
+      window.addEventListener("click", fastForwardStartupAnimation)
+
+    // remove event handler when the animation finishes
+    return () => {window.removeEventListener("click", fastForwardStartupAnimation)}
+  }, [StartupAnimationState])
+
+
+  function fastForwardStartupAnimation() {
+    if (!StartupAnimationState) {
+      // fast-forward the startup animation
+      for (let i=0; i<KeyStates.length; i++) {
+        setTimeout(() => {
+          KeyStates[i].setKeyState(true)
+        }, i*100)
+      }
+    }
+  }
 
 
   return (<>
@@ -75,6 +99,7 @@ export default function App() {
       <HomepageFooter
         CurrentPage={CurrentPage}
         begin_animation={KeyStates[4].KeyState}
+        setNextAnimationState={setStartupAnimationState}
       />
     </div>
 
