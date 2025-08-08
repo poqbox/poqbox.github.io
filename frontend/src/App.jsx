@@ -40,10 +40,10 @@ export default function App() {
   useEffect(() => {
     // add event handler for fast-forwarding the startup animation
     if (!StartupAnimationState)
-      window.addEventListener("click", fastForwardStartupAnimation)
+      window.addEventListener("dblclick", fastForwardStartupAnimation)
 
     // remove event handler when the animation finishes
-    return () => {window.removeEventListener("click", fastForwardStartupAnimation)}
+    return () => {window.removeEventListener("dblclick", fastForwardStartupAnimation)}
   }, [StartupAnimationState])
 
 
