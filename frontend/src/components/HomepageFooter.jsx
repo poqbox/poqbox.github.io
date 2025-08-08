@@ -18,7 +18,12 @@ export default function HomepageFooter({CurrentPage=null, begin_animation=true, 
       setTimeout(() => { setStyle1(null) }, 0)
       setTimeout(() => { setStyle2(null) }, 60)
       setTimeout(() => { setStyle3(null) }, 120)
-      setTimeout(() => { setShowTechStack(true) }, 2400)
+      setTimeout(() => {
+        setShowTechStack(true)
+        if (setNextAnimationState) {
+          setNextAnimationState(true)
+        }
+      }, 2400)
     }
   }, [begin_animation])
 
