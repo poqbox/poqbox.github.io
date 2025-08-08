@@ -141,6 +141,7 @@ iframe {
     width: 92%;
     margin: 8px;
     border: 1px solid white;
+    border-radius: 1px;
   }
   .hr-top {box-shadow: 0 2px 16px 4px white;}
   .hr-bottom {box-shadow: 0 -2px 16px 4px white;}
