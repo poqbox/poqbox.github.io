@@ -26,6 +26,7 @@ export default function TypedText({text, className="", style=null, base_speed=12
     },
     iteration: 0
   })
+  const TypedTextRef = useRef(null)
   const textP = useRef(0)
   const textCursorStyle = useRef({borderRight: "4px solid"})
 
@@ -42,6 +43,9 @@ export default function TypedText({text, className="", style=null, base_speed=12
 
   // useEffect for text updates
   useEffect(() => {
+    // scroll to the end in the case of overflowing text
+    TypedTextRef.current.scrollBy(TypedTextRef.current.scrollWidth, 0)
+
     // TextCursor updates
     if (TextCursor.use) {
       // Initial setup
@@ -149,7 +153,7 @@ export default function TypedText({text, className="", style=null, base_speed=12
 
 
   // return the React component
-  return <span className={ClassNames} style={Style}>
+  return <span ref={TypedTextRef} className={ClassNames} style={Style}>
     {DisplayText.text}
   </span>
 }
