@@ -81,7 +81,9 @@ export default function TypedText({text, className="", style=null, base_speed=12
 
       setTimeout(() => {
         TextCursor.clearTimingEvents()
-        setStyle(StyleOriginal)
+        setTimeout(() => {
+          setStyle(StyleOriginal)
+        }, 0)
 
         if (setNextAnimationState) {
           setNextAnimationState(true)
