@@ -1,5 +1,6 @@
 :root {
   --Homepage-max-width: 1280px;
+  --Homepage-padding: 10px;
   --HomepageHeader-width: 520px;
   --HomepageSubMenu-x-padding: 8px;
   --w-offset: max( calc((100vw - var(--Homepage-max-width) - var(--HomepageSubMenu-x-padding) * 2) / 2) , 0px);
@@ -78,7 +79,7 @@ body {
   height: 100%;
   width: 100%;
   margin: auto;
-  padding: 10px;
+  padding: var(--Homepage-padding);
 }
 #Homepage::selection {
   background-color: #2f4f77;
