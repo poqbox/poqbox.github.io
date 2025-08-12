@@ -46,6 +46,17 @@ export default function App() {
     return () => {window.removeEventListener("dblclick", fastForwardStartupAnimation)}
   }, [StartupAnimationState])
 
+  
+  // useEffect for managing the homepage background's animation
+  useEffect(() => {
+    // animate the background if on the homepage
+    if (!CurrentPage)
+      document.body.classList.add("animate")
+
+    // stop animating the background if CurrentPage changes
+    return () => {document.body.classList.remove("animate")}
+  }, [CurrentPage])
+
 
   function fastForwardStartupAnimation() {
     if (!StartupAnimationState) {
