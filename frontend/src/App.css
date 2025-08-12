@@ -136,6 +136,7 @@ iframe {
   flex-direction: column;
   width: var(--sidebar-width);
   min-height: 5em;
+  max-height: 20em;
   font-size: 24px;
   margin-left: 16px;
   padding: var(--HomepageSubMenu-x-padding);
