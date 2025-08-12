@@ -1,13 +1,13 @@
 :root {
   --Homepage-max-width: 1280px;
   --Homepage-padding: 10px;
-  --HomepageHeader-width: 520px;
+  --HomepageHeader-width: min( 520px, calc(100% - 2 * var(--Homepage-padding)) );
   --HomepageSubMenu-x-padding: 8px;
   --w-offset: max( calc((100vw - var(--Homepage-max-width) - var(--HomepageSubMenu-x-padding) * 2) / 2) , 0px);
   --sidebar-width: 220px;
   --sidebar-offset: -182px;
   --footer-width: 160px;
-  --HomepageHeader-right: calc(var(--w-offset) + var(--HomepageHeader-width));
+  --HomepageHeader-right: calc(var(--w-offset) + var(--HomepageHeader-width) + var(--Homepage-padding));
   --Content-width: calc(100vw - var(--sidebar-width));
   --Content-left: calc(var(--sidebar-width) + var(--HomepageSubMenu-x-padding) * 2);
   /***IMPORTANT**
