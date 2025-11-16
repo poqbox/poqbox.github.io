@@ -18,6 +18,7 @@
   --HomepageFooter-transition: inset 480ms ease-in-out;
   --ToHomepageButton-transition: opacity 300ms ease-in-out 300ms,
                         background-color 240ms ease-in;
+  --SubMenuHeader-transition: inset 660ms ease-out;
   --Content-transition: inset 480ms ease-out;
   --HomepageHeader-toHidden-transition: inset 480ms ease-out 320ms;
   --HomepageNavBar-toSidebar-transition: inset 360ms ease-out 360ms;
@@ -35,6 +36,8 @@
   inset: auto auto 0 0;
   transition: var(--HomepageFooter-toSidebar-transition);
 }
+#SubMenuHeader.hidden {inset: auto auto auto 100%;}
+#SubMenuHeader.shown {inset: auto auto auto 0;}
 .Content.hidden {inset: auto auto auto 100%;}
 .Content.shown {inset: auto auto auto var(--Content-left); box-shadow: 0 0 8px 4px;}
 .HomepageNavItem.active {
@@ -218,6 +221,18 @@ iframe {
   background-color: rgba(135, 135, 135, 0.5);
 }
 
+#SubMenuHeader {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 1em;
+  overflow: scroll hidden;
+  scrollbar-width: none;
+  width: var(--sidebar-width);
+  position: absolute;
+  inset: auto auto auto 100%;
+  transition: var(--SubMenuHeader-transition);
+}
 .Content {
   background-color: white;
   color: black;

@@ -8,6 +8,7 @@ import HomepageNavItem from './components/HomepageNavItem'
 import HomepageSubMenu from './components/HomepageSubMenu'
 import HomepageMainMenu from './components/HomepageMainMenu.jsx'
 import HomepageFooter from './components/HomepageFooter.jsx'
+import SubMenuHeader from './components/SubMenuHeader.jsx'
 import Content from './components/Content.jsx'
 
 
@@ -114,6 +115,7 @@ export default function App() {
       />
     </div>
 
+    <SubMenuHeader ActiveMenu={ActiveMenu} CurrentPage={CurrentPage} />
     <Content CurrentPage={CurrentPage} />
   </>)
 }
