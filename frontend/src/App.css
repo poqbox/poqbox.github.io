@@ -17,8 +17,7 @@
   --HomepageHeader-transition: inset 480ms ease-in-out;
   --HomepageNavBar-transition: inset 360ms ease-in-out;
   --HomepageFooter-transition: inset 480ms ease-in-out;
-  --ToHomepageButton-transition: opacity 300ms ease-in-out 300ms,
-                        background-color 240ms ease-in;
+  --ToHomepageButton-transition: opacity 300ms ease-in-out 300ms, background-color 240ms ease-in;
   --SubMenuHeader-transition: inset 660ms ease-out;
   --Content-transition: inset 480ms ease-out;
   --HomepageHeader-toHidden-transition: inset 480ms ease-out 320ms;
