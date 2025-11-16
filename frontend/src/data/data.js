@@ -1,7 +1,7 @@
 export default {
   "homepage-navbar": [
-    {title: "Projects"},
-    {title: "Experiments"},
+    {title: "PROJECTS"},
+    {title: "EXPERIMENTS"},
     {title: "..."}
   ]
 }

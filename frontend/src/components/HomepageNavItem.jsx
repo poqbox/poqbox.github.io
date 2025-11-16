@@ -16,11 +16,8 @@ export default function HomepageNavItem({title, begin_animation=true, setNextAni
 
   // event handlers
   function onMouseDownHandler(e) {
-    e.currentTarget.classList.add("cursor-grabbing")
-    setStyle({width: "100%"})
   }
   function onMouseUpHandler(e) {
-    e.currentTarget.classList.remove("cursor-grabbing")
     if (!CurrentPage && sendResponse) {
       if (!e.currentTarget.classList.contains("active")) {
         sendResponse(Title)
