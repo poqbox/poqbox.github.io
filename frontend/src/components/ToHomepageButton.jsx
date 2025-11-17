@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react"
 
-export default function ToHomepageButton({setCurrentPage=null}) {
+export default function ToHomepageButton({CurrentPage=null, setCurrentPage=null}) {
   const [Style, setStyle] = useState({opacity: 0}) // hide the component until needed
 
 
   useEffect(() => {
-    if (setCurrentPage)
+    if (CurrentPage)
       setStyle({})  // unhide the component
     else
       setStyle({opacity: 0})
-  }, [setCurrentPage])
+  }, [CurrentPage])
 
 
   // event handlers

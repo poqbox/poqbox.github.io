@@ -61,26 +61,26 @@ export default function HomepageSubMenu({CurrentMenu=null, CurrentPage=null, set
         {MenuList}
       </div>
       {(CurrentPage) ? <>
-        <HomepageSubMenuHRBottom setCurrentPage={setCurrentPage} />
-        <ToHomepageButton setCurrentPage={setCurrentPage} />
+        <HomepageSubMenuHRBottom CurrentPage={CurrentPage} />
+        <ToHomepageButton CurrentPage={CurrentPage} setCurrentPage={setCurrentPage} />
       </> : null}
     </div>
   )
-}
 
 
-function HomepageSubMenuHRBottom({setCurrentPage=null}) {
-  const [Style, setStyle] = useState({opacity: 0}) // hide the component until needed
+  function HomepageSubMenuHRBottom({CurrentPage=null}) {
+    const [Style, setStyle] = useState({opacity: 0}) // hide the component until needed
 
-  useEffect(() => {
-    if (setCurrentPage)
-      setStyle({})  // unhide the component
-    else
-      setStyle({opacity: 0})
-  }, [setCurrentPage])
+    useEffect(() => {
+      if (CurrentPage)
+        setStyle({})  // unhide the component
+      else
+        setStyle({opacity: 0})
+    }, [CurrentPage])
 
-  // return the React component
-  return (
-    <hr className="hr-bottom" style={Style}/>
-  )
+    // return the React component
+    return (
+      <hr className="hr-bottom" style={Style} />
+    )
+  }
 }
