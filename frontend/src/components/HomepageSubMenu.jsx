@@ -56,14 +56,17 @@ export default function HomepageSubMenu({CurrentMenu=null, CurrentPage=null, set
   // return the React component
   return (
     <div id="HomepageSubMenu">
-      <hr className="hr-top" />
+      {(CurrentMenu)
+        ? <hr className="hr-top" />
+        : null
+      }
       <div id="HomepageSubMenuItems">
         {MenuList}
       </div>
       {(CurrentPage) ? <>
         <HomepageSubMenuHRBottom CurrentPage={CurrentPage} />
-        <ToHomepageButton CurrentPage={CurrentPage} setCurrentPage={setCurrentPage} />
-      </> : null}
+        <ToHomepageButton CurrentPage={CurrentPage} setCurrentPage={setCurrentPage} /></>
+        : null}
     </div>
   )
 

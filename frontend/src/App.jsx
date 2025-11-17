@@ -8,6 +8,7 @@ import HomepageNavItem from './components/HomepageNavItem'
 import HomepageSubMenu from './components/HomepageSubMenu'
 import HomepageMainMenu from './components/HomepageMainMenu.jsx'
 import HomepageFooter from './components/HomepageFooter.jsx'
+import SubMenuBackground from './components/SubMenuBackground.jsx'
 import SubMenuHeader from './components/SubMenuHeader.jsx'
 import Content from './components/Content.jsx'
 
@@ -80,6 +81,7 @@ export default function App() {
         setNextAnimationState={KeyStates[1].setKeyState}
       />
       <div className='about-me'></div>
+      <SubMenuBackground CurrentMenu={ActiveMenu} CurrentPage={CurrentPage} />
       <HomepageNavBar CurrentPage={CurrentPage}>
         <HomepageMainMenu ActiveMenu={ActiveMenu}>
           <HomepageNavItem
