@@ -5,6 +5,7 @@
   --HomepageSubMenu-x-padding: 8px;
   --HomepageSubMenu-width: calc(var(--sidebar-width) - var(--HomepageSubMenu-x-padding) * 2);
   --w-offset: max( calc((100vw - var(--Homepage-max-width) - var(--HomepageSubMenu-x-padding) * 2) / 2) , 0px);
+  --navbar-offset: calc(var(--w-offset) + var(--Homepage-padding));
   --sidebar-width: 196px;
   --sidebar-offset: -170px;
   --footer-width: 160px;
@@ -111,11 +112,10 @@ iframe {
 }
 #HomepageNavBar {
   position: absolute;
-  inset: 0 auto auto var(--w-offset);
+  inset: 0 auto auto var(--navbar-offset);
   display: flex;
   align-items: start;
   height: 100%;
-  margin-left: 6px;
   width: fit-content;
   transition: var(--HomepageNavBar-transition);
 }
