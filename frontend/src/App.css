@@ -148,7 +148,11 @@ iframe {
   inset: 120px auto 160px var(--w-offset);
   width: 100%;
   border-radius: 16px;
-  background: linear-gradient(to right, rgb(60, 60, 60), rgba(0, 0, 0, 0) 80%);
+  background: linear-gradient(
+    to right,
+    rgb(44, 44, 44) var(--HomepageMainMenu-width),
+    rgb(80, 80, 80) var(--HomepageMainMenu-width),
+    rgba(0, 0, 0, 0) calc(var(--HomepageMainMenu-width) + var(--sidebar-width) + 800px));
 }
 #HomepageSubMenu {
   font-family: Helvetica, Arial, sans-serif;
