@@ -37,6 +37,10 @@
   inset: auto auto 0 0;
   transition: var(--HomepageFooter-toSidebar-transition);
 }
+.HomepageNavItem.active {
+  background-position: left;
+  border-radius: 0;
+}
 #SubMenuHeader.hidden {inset: auto auto auto 100%;}
 #SubMenuHeader.shown {inset: auto auto auto 0;}
 #SubMenuBackground.hidden {
@@ -54,11 +58,6 @@
 }
 .Content.hidden {inset: auto auto auto 100%;}
 .Content.shown {inset: auto auto auto var(--Content-left); box-shadow: 0 0 8px 4px;}
-.HomepageNavItem.active {
-  background-position: left;
-  width: 100%;
-  border-radius: 0;
-}
 #HomepageSubMenu.active {opacity: 1}
 
 
