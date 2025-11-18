@@ -1,15 +1,15 @@
 :root {
   --Homepage-max-width: 1280px;
   --Homepage-padding: 10px;
-  --HomepageHeader-width: min( 520px, calc(100% - 2 * var(--Homepage-padding)) );
+  --HomepageMainMenu-width: 200px;
   --HomepageSubMenu-x-padding: 8px;
-  --HomepageSubMenu-width: calc(var(--sidebar-width) - var(--HomepageSubMenu-x-padding) * 2);
-  --w-offset: max( calc((100vw - var(--Homepage-max-width) - var(--HomepageSubMenu-x-padding) * 2) / 2) , 0px);
-  --navbar-offset: calc(var(--w-offset) + var(--Homepage-padding));
   --sidebar-width: 196px;
-  --sidebar-offset: -170px;
   --footer-width: 160px;
+  --w-offset: max( calc((100vw - var(--Homepage-max-width)) / 2) , var(--Homepage-padding));
+  --HomepageHeader-width: min( 520px, calc(100% - 2 * var(--Homepage-padding)) );
+  --HomepageSubMenu-width: calc(var(--sidebar-width) - var(--HomepageSubMenu-x-padding) * 2);
   --HomepageHeader-right: calc(var(--w-offset) + var(--HomepageHeader-width) + var(--Homepage-padding));
+  --sidebar-offset: calc(var(--HomepageMainMenu-width) * -1);
   --Content-width: calc(100vw - var(--sidebar-width));
   --Content-left: var(--sidebar-width);
   /***IMPORTANT**
@@ -125,7 +125,7 @@ iframe {
 }
 #HomepageNavBar {
   position: absolute;
-  inset: 0 auto auto var(--navbar-offset);
+  inset: 0 auto auto var(--w-offset);
   display: flex;
   align-items: start;
   height: 100%;
@@ -139,12 +139,13 @@ iframe {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: var(--HomepageMainMenu-width);
   font-size: 16px;
   box-shadow: -3.2px 0 1.2px -1.2px gray;
 }
 #SubMenuBackground {
   position: absolute;
-  inset: 120px auto 160px var(--navbar-offset);
+  inset: 120px auto 160px var(--w-offset);
   width: 100%;
   border-radius: 16px;
   background: linear-gradient(to right, rgb(60, 60, 60), rgba(0, 0, 0, 0) 80%);
@@ -160,8 +161,7 @@ iframe {
   min-height: 5em;
   max-height: 20em;
   font-size: 16px;
-  margin-left: 16px;
-  padding: var(--HomepageSubMenu-x-padding);
+  padding: 8px var(--HomepageSubMenu-x-padding);
   border-radius: 20px 0 20px 0;
   opacity: 0;
   transition-property: opacity;
