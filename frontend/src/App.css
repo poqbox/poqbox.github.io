@@ -152,8 +152,9 @@ iframe {
   border-radius: 16px;
   background: linear-gradient(
     to right,
-    rgb(44, 44, 44) var(--HomepageMainMenu-width),
-    rgb(80, 80, 80) var(--HomepageMainMenu-width),
+    #222333 calc(var(--HomepageMainMenu-width) - 40px),
+    #1b1b22 calc(var(--HomepageMainMenu-width) - 2px),
+    #404555 var(--HomepageMainMenu-width),
     rgba(0, 0, 0, 0) calc(var(--HomepageMainMenu-width) + var(--sidebar-width) + 800px));
 }
 #HomepageSubMenu {
