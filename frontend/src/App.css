@@ -237,7 +237,7 @@ iframe {
   background-position: left;
   cursor: pointer;
 }
-.HomepageNavItem:active {
+.HomepageNavItem:active, .HomepageNavSubItem:active {
   background: linear-gradient(to left, rgba(0, 0, 0, 0) 50%, rgba(200, 200, 200, 0.4) 70%);
   background-size: 200% 100%;
   cursor: grab;
