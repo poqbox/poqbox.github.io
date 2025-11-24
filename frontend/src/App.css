@@ -225,6 +225,9 @@ iframe {
   border-radius: 0 20% 20% 0;
 }
 .HomepageNavSubItem {
+  text-wrap: nowrap;
+  overflow: scroll hidden;
+  scrollbar-width: none;
   padding: 2px 16px;
   border-radius: 12px 0 0 12px;
   color: inherit;
