@@ -21,6 +21,7 @@
   --ToHomepageButton-transition: opacity 300ms ease-in-out 300ms, background-color 240ms ease-in;
   --SubMenuHeader-transition: inset 660ms ease-out;
   --Content-transition: inset 480ms ease-out;
+  --HomepageMainMenu-open-transition: margin 80ms ease-in;
   --HomepageHeader-toHidden-transition: inset 480ms ease-out 320ms;
   --HomepageNavBar-toSidebar-transition: inset 360ms ease-out 360ms;
   --HomepageFooter-toSidebar-transition: inset 480ms ease-out 40ms;
@@ -35,6 +36,7 @@
 }
 #HomepageMainMenu.open {
   color: #d3ba7f;
+  margin: 0;
 }
 #HomepageFooter.sidebar {
   inset: auto auto 0 0;
@@ -50,10 +52,10 @@
   width: 10%;
   margin: 4px;
   opacity: 0;
-  transition: margin 80ms ease-in, width 80ms ease-in, opacity 40ms ease-in 60ms;
+  transition: var(--HomepageMainMenu-open-transition), width 80ms ease-in, opacity 40ms ease-in 60ms;
 }
 #SubMenuBackground.shown {
-  transition: margin 80ms ease-in, width 160ms ease-in, var(--HomepageNavBar-transition);
+  transition: var(--HomepageMainMenu-open-transition), width 160ms ease-in, var(--HomepageNavBar-transition);
 }
 #SubMenuBackground.content-shown {
   inset: 120px auto 160px var(--sidebar-offset);
@@ -138,12 +140,14 @@ iframe {
   font-family: Helvetica, Arial, sans-serif;
   position: relative;
   top: max(36%, 132px);
+  margin: 0 0 0 4px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: var(--HomepageMainMenu-width);
   font-size: 16px;
   box-shadow: -3.2px 0 1.2px -1.2px gray;
+  transition: var(--HomepageMainMenu-open-transition);
 }
 #SubMenuBackground {
   position: absolute;
