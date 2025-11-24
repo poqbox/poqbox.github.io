@@ -2,7 +2,11 @@
   --Homepage-max-width: 1280px;
   --Homepage-padding: 10px;
   --HomepageMainMenu-width: 200px;
+  --HomepageSubMenu-min-height: 12em;
+  --HomepageSubMenu-max-height: 20em;
   --HomepageSubMenu-x-padding: 8px;
+  --HomepageSubMenu-y-padding: 8px;
+  --HomepageSubMenu-y-offset: max(120px, 24%);
   --sidebar-width: 196px;
   --footer-width: 160px;
   --w-offset: max( calc((100vw - var(--Homepage-max-width)) / 2) , var(--Homepage-padding));
@@ -58,7 +62,7 @@
   transition: var(--HomepageMainMenu-open-transition), width 160ms ease-in, var(--HomepageNavBar-transition);
 }
 #SubMenuBackground.content-shown {
-  inset: 120px auto 160px var(--sidebar-offset);
+  inset: var(--HomepageSubMenu-y-offset) auto 160px var(--sidebar-offset);
   transition: margin 160ms ease-in, width 160ms ease-in, var(--HomepageNavBar-toSidebar-transition);
 }
 .Content.hidden {inset: auto auto auto 100%;}
@@ -139,7 +143,7 @@ iframe {
 #HomepageMainMenu {
   font-family: Helvetica, Arial, sans-serif;
   position: relative;
-  top: max(36%, 132px);
+  top: max(34%, 164px);
   margin: 0 0 0 4px;
   display: flex;
   flex-direction: column;
@@ -152,8 +156,10 @@ iframe {
 }
 #SubMenuBackground {
   position: absolute;
-  inset: 120px auto 160px var(--w-offset);
+  inset: var(--HomepageSubMenu-y-offset) auto 160px var(--w-offset);
   width: 100%;
+  min-height: calc(var(--HomepageSubMenu-min-height) + 2 * var(--HomepageSubMenu-y-padding));
+  max-height: calc(var(--HomepageSubMenu-max-height) + 2 * var(--HomepageSubMenu-y-padding));
   border-radius: 16px;
   background: linear-gradient(
     to right,
@@ -166,14 +172,14 @@ iframe {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: bold;
   position: absolute;
-  inset: 120px auto 160px auto;
+  inset: var(--HomepageSubMenu-y-offset) auto 160px auto;
   display: flex;
   flex-direction: column;
   width: var(--HomepageSubMenu-width);
-  min-height: 5em;
-  max-height: 20em;
+  min-height: var(--HomepageSubMenu-min-height);
+  max-height: var(--HomepageSubMenu-max-height);
   font-size: 16px;
-  padding: 8px var(--HomepageSubMenu-x-padding);
+  padding: var(--HomepageSubMenu-y-padding) var(--HomepageSubMenu-x-padding);
   border-radius: 20px 0 20px 0;
   opacity: 0;
   transition-property: opacity;
