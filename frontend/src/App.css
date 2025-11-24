@@ -145,6 +145,7 @@ iframe {
   flex-direction: column;
   justify-content: center;
   width: var(--HomepageMainMenu-width);
+  color: #ddd6c6;
   font-size: 16px;
   box-shadow: -3.2px 0 1.2px -1.2px gray;
   transition: var(--HomepageMainMenu-open-transition);
