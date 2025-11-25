@@ -25,7 +25,7 @@
   --ToHomepageButton-transition: opacity 300ms ease-in-out 300ms, background-color 240ms ease-in;
   --SubMenuHeader-transition: inset 600ms ease-out;
   --Content-transition: inset 480ms ease-out;
-  --HomepageMainMenu-open-transition: margin 80ms ease-in;
+  --HomepageMainMenu-open-transition: margin 80ms ease-in, box-shadow 80ms ease-in;
   --HomepageHeader-toHidden-transition: inset 344ms ease-out 260ms;
   --HomepageNavBar-toSidebar-transition: inset 260ms ease-out 360ms;
   --HomepageFooter-toSidebar-transition: inset 592ms ease-out 40ms;
@@ -56,6 +56,7 @@
   width: 10%;
   margin: 4px;
   opacity: 0;
+  box-shadow: 0px 0px 0px gray;
   transition: var(--HomepageMainMenu-open-transition), width 80ms ease-in, opacity 40ms ease-in 60ms;
 }
 #SubMenuBackground.shown {
@@ -161,6 +162,7 @@ iframe {
   min-height: calc(var(--HomepageSubMenu-min-height) + 2 * var(--HomepageSubMenu-y-padding));
   max-height: calc(var(--HomepageSubMenu-max-height) + 2 * var(--HomepageSubMenu-y-padding));
   border-radius: 16px;
+  box-shadow: 0px 0px 12px gray;
   background: linear-gradient(
     to right,
     #222333 calc(var(--HomepageMainMenu-width) - 40px),
