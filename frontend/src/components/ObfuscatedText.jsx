@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 
-export default function ObfuscatedText({length=1, speed=60, className="", style={}, AnimationState=true}) {
+export default function ObfuscatedText({length=1, animationInterval=60, className="", style={}, AnimationState=true}) {
   // React objects
   // list of characters to be used in the obfuscated animation
   const [characters, setCharacters] = useState([
@@ -11,7 +11,7 @@ export default function ObfuscatedText({length=1, speed=60, className="", style=
   ])
 
   const [ClassNames, setClassNames] = useState(`ObfuscatedText ${className}`.trim())
-  const [Speed, setSpeed] = useState(speed)
+  const [AnimationInterval, setAnimationInterval] = useState(animationInterval)
   const [Style, setStyle] = useState({fontFamily: "monospace", ...style})
   const [Text, setText] = useState("")
   const [Options, setOptions] = useState({
@@ -29,7 +29,7 @@ export default function ObfuscatedText({length=1, speed=60, className="", style=
       setText(() => generateText(length))
       Options.intervalId = setInterval(() => {
         setText(() => generateText(length))
-      }, Speed)
+      }, AnimationInterval)
     }
 
     // generate obfuscated text via recursion
@@ -41,7 +41,7 @@ export default function ObfuscatedText({length=1, speed=60, className="", style=
     }
 
     return () => {Options.stopAnimation()}
-  }, [AnimationState, Speed])
+  }, [AnimationState, AnimationInterval])
 
 
   // return the React component
