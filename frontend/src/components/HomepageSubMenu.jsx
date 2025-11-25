@@ -31,7 +31,7 @@ export default function HomepageSubMenu({CurrentMenu=null, CurrentPage=null, set
       case data["homepage-navbar"][2].title:
         setMenuList([
           <a className="HomepageNavSubItem" onClick={ () => {setCurrentPage("WIP")} }>
-            ETA: <ObfuscatedText length={2} animationInterval={120} style={{fontFamily: "inherit"}} />
+            ETA: <ObfuscatedText length={2} animationInterval={240} style={{fontFamily: "inherit"}} />
           </a>
         ])
         break
