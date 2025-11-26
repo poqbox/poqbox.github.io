@@ -1,11 +1,24 @@
 import { useEffect, useState } from "react"
-import ObfuscatedText from "./ObfuscatedText"
 import data from '../data/data'
+import SubMenuBackground from "./SubMenuBackground"
 import ToHomepageButton from "./ToHomepageButton"
+import ObfuscatedText from "./ObfuscatedText"
 
 
 export default function HomepageSubMenu({CurrentMenu=null, CurrentPage=null, setCurrentPage=null}) {
+  const [ClassNames, setClassNames] = useState(null)
   const [MenuList, setMenuList] = useState([])
+
+
+  // useEffect for the component's transition animation
+  useEffect(() => {
+    if (CurrentMenu)
+      setClassNames("shown")
+    if (CurrentPage)
+      setClassNames("sidebar")
+    if (!(CurrentMenu || CurrentPage))
+      setClassNames("hidden")
+  }, [CurrentMenu, CurrentPage])
 
 
   // useEffect for setting the contents of the sub-menu
@@ -73,18 +86,21 @@ export default function HomepageSubMenu({CurrentMenu=null, CurrentPage=null, set
 
   // return the React component
   return (
-    <div id="HomepageSubMenu">
-      {(CurrentMenu)
-        ? <hr className="hr-top" />
-        : null
-      }
-      <div id="HomepageSubMenuItems">
-        {MenuList}
+    <div id="submenu-container" className={ClassNames}>
+      <SubMenuBackground CurrentMenu={CurrentMenu} CurrentPage={CurrentPage} />
+      <div id="HomepageSubMenu">
+        {(CurrentMenu)
+          ? <hr className="hr-top" />
+          : null
+        }
+        <div id="HomepageSubMenuItems">
+          {MenuList}
+        </div>
+        {(CurrentPage) ? <>
+          <HomepageSubMenuHRBottom CurrentPage={CurrentPage} />
+          <ToHomepageButton CurrentPage={CurrentPage} setCurrentPage={setCurrentPage} /></>
+          : null}
       </div>
-      {(CurrentPage) ? <>
-        <HomepageSubMenuHRBottom CurrentPage={CurrentPage} />
-        <ToHomepageButton CurrentPage={CurrentPage} setCurrentPage={setCurrentPage} /></>
-        : null}
     </div>
   )
 }

@@ -8,9 +8,7 @@ export default function SubMenuBackground({CurrentMenu=null, CurrentPage=null}) 
   useEffect(() => {
     if (CurrentMenu)
       setClassNames("shown")
-    if (CurrentPage)
-      setClassNames("content-shown")
-    if (!(CurrentMenu || CurrentPage))
+    else
       setClassNames("hidden")
   }, [CurrentMenu, CurrentPage])
 

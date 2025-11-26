@@ -50,6 +50,10 @@
   background-position: left;
   border-radius: 0;
 }
+#submenu-container.sidebar {
+  inset: var(--HomepageSubMenu-y-offset) auto 160px var(--sidebar-offset);
+  transition: var(--HomepageNavBar-toSidebar-transition);
+}
 #SubMenuHeader.hidden {inset: auto auto auto 100%;}
 #SubMenuHeader.shown {inset: auto auto auto 0;}
 #SubMenuBackground.hidden {
@@ -60,11 +64,7 @@
   transition: var(--HomepageMainMenu-open-transition), width 80ms ease-in, opacity 40ms ease-in 60ms;
 }
 #SubMenuBackground.shown {
-  transition: var(--HomepageMainMenu-open-transition), width 160ms ease-in, var(--HomepageNavBar-transition);
-}
-#SubMenuBackground.content-shown {
-  inset: var(--HomepageSubMenu-y-offset) auto 160px var(--sidebar-offset);
-  transition: margin 160ms ease-in, width 160ms ease-in, var(--HomepageNavBar-toSidebar-transition);
+  transition: var(--HomepageMainMenu-open-transition), width 160ms ease-in, opacity 40ms ease-in;
 }
 .Content.hidden {inset: auto auto auto 100%;}
 .Content.shown {inset: auto auto auto var(--Content-left); box-shadow: 0 0 8px 4px;}
@@ -155,12 +155,17 @@ iframe {
   box-shadow: -3.2px 0 1.2px -1.2px gray;
   transition: var(--HomepageMainMenu-open-transition);
 }
-#SubMenuBackground {
+#submenu-container {
   position: absolute;
-  inset: var(--HomepageSubMenu-y-offset) auto 160px var(--w-offset);
   width: 100%;
-  min-height: calc(var(--HomepageSubMenu-min-height) + 2 * var(--HomepageSubMenu-y-padding));
-  max-height: calc(var(--HomepageSubMenu-max-height) + 2 * var(--HomepageSubMenu-y-padding));
+  min-height: var(--HomepageSubMenu-min-height);
+  max-height: var(--HomepageSubMenu-max-height);
+  inset: var(--HomepageSubMenu-y-offset) auto 160px var(--w-offset);
+  transition: var(--HomepageNavBar-transition);
+}
+#SubMenuBackground {
+  width: 100%;
+  height: 100%;
   border-radius: 16px;
   box-shadow: 0px 0px 12px gray;
   background: linear-gradient(
@@ -174,15 +179,13 @@ iframe {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: bold;
   position: absolute;
-  inset: var(--HomepageSubMenu-y-offset) auto 160px auto;
+  inset: 0 auto 0 auto;
   display: flex;
   flex-direction: column;
   width: var(--HomepageSubMenu-width);
-  min-height: var(--HomepageSubMenu-min-height);
-  max-height: var(--HomepageSubMenu-max-height);
   font-size: 16px;
   padding: var(--HomepageSubMenu-y-padding) var(--HomepageSubMenu-x-padding);
-  border-radius: 20px 0 20px 0;
+  margin-left: var(--HomepageMainMenu-width);
   opacity: 0;
   transition-property: opacity;
   transition-duration: 160ms;

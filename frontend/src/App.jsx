@@ -81,7 +81,7 @@ export default function App() {
         setNextAnimationState={KeyStates[1].setKeyState}
       />
       <div className='about-me'></div>
-      <SubMenuBackground CurrentMenu={ActiveMenu} CurrentPage={CurrentPage} />
+      <HomepageSubMenu CurrentMenu={ActiveMenu} CurrentPage={CurrentPage} setCurrentPage={setCurrentPage} />
       <HomepageNavBar CurrentPage={CurrentPage}>
         <HomepageMainMenu ActiveMenu={ActiveMenu}>
           <HomepageNavItem
@@ -106,9 +106,6 @@ export default function App() {
             CurrentPage={CurrentPage}
           />
         </HomepageMainMenu>
-        <div id='submenu-container'>
-          <HomepageSubMenu CurrentMenu={ActiveMenu} CurrentPage={CurrentPage} setCurrentPage={setCurrentPage} />
-        </div>
       </HomepageNavBar>
       <HomepageFooter
         CurrentPage={CurrentPage}
