@@ -8,7 +8,6 @@ import HomepageNavItem from './components/HomepageNavItem'
 import HomepageSubMenu from './components/HomepageSubMenu'
 import HomepageMainMenu from './components/HomepageMainMenu.jsx'
 import HomepageFooter from './components/HomepageFooter.jsx'
-import SubMenuBackground from './components/SubMenuBackground.jsx'
 import SubMenuHeader from './components/SubMenuHeader.jsx'
 import Content from './components/Content.jsx'
 
