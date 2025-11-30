@@ -22,7 +22,7 @@
   --HomepageHeader-transition: inset 480ms ease-in-out;
   --HomepageNavBar-transition: inset 360ms ease-out;
   --HomepageFooter-transition: inset 480ms ease-out;
-  --ToHomepageButton-transition: opacity 300ms ease-in-out 300ms, background-color 240ms ease-in;
+  --ToHomepageButton-transition: height 60ms ease-in 20ms, padding 120ms ease-in 20ms;
   --SubMenuHeader-transition: inset 600ms ease-out;
   --Content-transition: inset 480ms ease-out;
   --HomepageMainMenu-open-transition: margin 80ms ease-in, box-shadow 80ms ease-in;
@@ -50,6 +50,10 @@
   background-position: left;
   border-radius: 0;
 }
+#submenu-container.hidden {
+  opacity: 0;
+  transition: var(--HomepageNavBar-toSidebar-transition), opacity 40ms ease-in 60ms;
+}
 #submenu-container.sidebar {
   inset: var(--HomepageSubMenu-y-offset) auto 160px var(--sidebar-offset);
   transition: var(--HomepageNavBar-toSidebar-transition);
@@ -65,6 +69,13 @@
 }
 #SubMenuBackground.shown {
   transition: var(--HomepageMainMenu-open-transition), width 160ms ease-in, opacity 40ms ease-in;
+}
+#ToHomepageButton.hidden {
+  margin-left: 0;
+  height: 0;
+  border-radius: 12px 0 12px 12px;
+  padding: 0;
+  transition: var(--ToHomepageButton-transition), margin-left 360ms ease-out, border-radius 360ms ease-out;
 }
 .Content.hidden {inset: auto auto auto 100%;}
 .Content.shown {inset: auto auto auto var(--Content-left); box-shadow: 0 0 8px 4px;}
@@ -256,19 +267,21 @@ iframe {
   background-size: 200% 100%;
   cursor: grab;
 }
-.ToHomepageButton {
+#ToHomepageButton {
   filter: invert(100%);
   user-select: none;
-  top: -40px;
+  position: absolute;
   height: 24px;
-  border-radius: 12px;
-  padding: 4px;
-  opacity: 0.75;
-  transition: var(--ToHomepageButton-transition);
-}
-.ToHomepageButton:hover {
-  cursor: pointer;
+  border-radius: 0 0 12px 12px;
+  margin-left: var(--HomepageMainMenu-width);
+  padding: 8px;
+  padding-top: 16px;
   background-color: rgba(135, 135, 135, 0.5);
+  transition: var(--ToHomepageButton-transition), margin-left 260ms ease-out 360ms, border-radius 160ms ease-out 360ms;
+}
+#ToHomepageButton:hover {
+  cursor: pointer;
+  height: 28px;
 }
 
 #SubMenuHeader {

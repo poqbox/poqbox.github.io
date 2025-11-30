@@ -97,10 +97,10 @@ export default function HomepageSubMenu({CurrentMenu=null, CurrentPage=null, set
           {MenuList}
         </div>
         {(CurrentPage) ? <>
-          <HomepageSubMenuHRBottom CurrentPage={CurrentPage} />
-          <ToHomepageButton CurrentPage={CurrentPage} setCurrentPage={setCurrentPage} /></>
+          <HomepageSubMenuHRBottom CurrentPage={CurrentPage} /></>
           : null}
       </div>
+      <ToHomepageButton CurrentPage={CurrentPage} setCurrentPage={setCurrentPage} />
     </div>
   )
 }

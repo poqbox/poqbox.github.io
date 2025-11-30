@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react"
 
 export default function ToHomepageButton({CurrentPage=null, setCurrentPage=null}) {
-  const [Style, setStyle] = useState({opacity: 0}) // hide the component until needed
+  const [ClassNames, setClassNames] = useState(null)
 
 
   useEffect(() => {
     if (CurrentPage)
-      setStyle({})  // unhide the component
+      setClassNames("shown")  // unhide the component
     else
-      setStyle({opacity: 0})
+      setClassNames("hidden")
   }, [CurrentPage])
 
 
@@ -21,6 +21,6 @@ export default function ToHomepageButton({CurrentPage=null, setCurrentPage=null}
 
   // return the React component
   return (
-    <img className="ToHomepageButton" style={Style} src="/icons/arrow-left.svg" onClick={handleOnClick} />
+    <img id="ToHomepageButton" className={ClassNames} src="/icons/arrow-left.svg" onClick={handleOnClick} />
   )
 }
