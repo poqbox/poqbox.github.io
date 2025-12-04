@@ -35,6 +35,7 @@ export default function App() {
   const [StartupAnimationState, setStartupAnimationState] = useState(false)
   const [ActiveMenu, setActiveMenu] = useState(null)
   const [CurrentPage, setCurrentPage] = useState(null)
+  const [ContentAlignment, setContentAlignment] = useState(null)
 
 
   // useEffect for fast-forwarding the startup animation
@@ -113,7 +114,7 @@ export default function App() {
       />
     </div>
 
-    <SubMenuHeader ActiveMenu={ActiveMenu} CurrentPage={CurrentPage} />
-    <Content CurrentPage={CurrentPage} />
+    <SubMenuHeader ActiveMenu={ActiveMenu} CurrentPage={CurrentPage} ContentAlignment={ContentAlignment} />
+    <Content CurrentPage={CurrentPage} ContentAlignment={ContentAlignment} setContentAlignment={setContentAlignment} />
   </>)
 }

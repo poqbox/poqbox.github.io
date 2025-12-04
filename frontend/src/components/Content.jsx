@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react"
 import IframePage from "./Pages/IframePage"
 import UnderConstructionPage from "./Pages/UnderConstructionPage"
+import AlignContentButton from "./AlignContentButton"
 
 
-export default function Content({style=null, CurrentPage=true}) {
+export default function Content({style=null, CurrentPage=true, ContentAlignment=null, setContentAlignment=null}) {
   const [ClassNames, setClassNames] = useState("")
   const [Page, setPage] = useState(null)
 
@@ -11,7 +12,7 @@ export default function Content({style=null, CurrentPage=true}) {
   // useEffect for the component's hiding animation
   useEffect(() => {
     if (CurrentPage) {
-      setClassNames(" shown")
+      setClassNames("shown")
 
       // prepare Content page
       // if CurrentPage is an object, compare its properties
@@ -36,14 +37,24 @@ export default function Content({style=null, CurrentPage=true}) {
 
     }
     else
-      setClassNames(" hidden")
+      setClassNames("hidden")
   }, [CurrentPage])
 
 
   // return the React component
   return (
-    <div className={`Content${ClassNames}`} style={style}>
-      {Page}
+    <div id="content-container" className={`${ClassNames} ${ContentAlignment}`}>
+      <div className="Content" style={style}>
+        {Page}
+      </div>
+      {(setContentAlignment) ?
+        <AlignContentButton
+          CurrentPage={CurrentPage}
+          ContentAlignment={ContentAlignment}
+          setContentAlignment={setContentAlignment}
+        />
+        : null
+      }
     </div>
   )
 }

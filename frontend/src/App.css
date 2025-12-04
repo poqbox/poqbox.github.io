@@ -7,6 +7,7 @@
   --HomepageSubMenu-x-padding: 8px;
   --HomepageSubMenu-y-padding: 8px;
   --HomepageSubMenu-y-offset: max(120px, 24%);
+  --Content-alignment-offset: 50px;
   --sidebar-width: 196px;
   --footer-width: 160px;
   --w-offset: max( calc((100vw - var(--Homepage-max-width)) / 2) , var(--Homepage-padding));
@@ -14,8 +15,8 @@
   --HomepageSubMenu-width: calc(var(--sidebar-width) - var(--HomepageSubMenu-x-padding) * 2);
   --HomepageHeader-right: calc(var(--w-offset) + var(--HomepageHeader-width) + var(--Homepage-padding));
   --sidebar-offset: calc(var(--HomepageMainMenu-width) * -1);
-  --Content-width: calc(100vw - var(--sidebar-width));
-  --Content-left: var(--sidebar-width);
+  --Content-align-sidebar-width: calc(100vw - var(--sidebar-width));
+  --Content-align-left-width: calc(100vw - var(--Content-alignment-offset));
   /***IMPORTANT**
     Transitions don't work with auto
     **IMPORTANT***/
@@ -25,6 +26,8 @@
   --ToHomepageButton-transition: height 60ms ease-in 20ms, padding 120ms ease-in 20ms;
   --SubMenuHeader-transition: inset 600ms ease-out;
   --Content-transition: inset 480ms ease-out;
+  --Content-alignment-transition: width 480ms ease-out;
+  --AlignContentButton-transition: inset 120ms ease-out;
   --HomepageMainMenu-open-transition: margin 80ms ease-in, box-shadow 80ms ease-in;
   --HomepageHeader-toHidden-transition: inset 344ms ease-out 260ms;
   --HomepageNavBar-toSidebar-transition: inset 260ms ease-out 360ms;
@@ -60,6 +63,8 @@
 }
 #SubMenuHeader.hidden {inset: auto auto auto 100%;}
 #SubMenuHeader.shown {inset: auto auto auto 0;}
+#SubMenuHeader.align-sidebar {width: var(--sidebar-width)}
+#SubMenuHeader.align-left {width: var(--Content-alignment-offset)}
 #SubMenuBackground.hidden {
   width: 10%;
   margin: 4px;
@@ -76,8 +81,17 @@
   padding: 0;
   transition: var(--ToHomepageButton-transition), margin-left 360ms ease-out, border-radius 360ms ease-out;
 }
-.Content.hidden {inset: auto auto auto 100%;}
-.Content.shown {inset: auto auto auto var(--Content-left); box-shadow: 0 0 8px 4px;}
+#content-container.hidden {inset: auto auto auto 100%; box-shadow: 0;}
+#content-container.align-sidebar {
+  width: var(--Content-align-sidebar-width);
+  &.shown {inset: auto auto auto var(--sidebar-width)}
+}
+#content-container.align-left {
+  width: var(--Content-align-left-width);
+  &.shown {inset: auto auto auto var(--Content-alignment-offset)}
+}
+#AlignContentButton.hidden {inset: 44px auto auto 0; border-radius: 0 12px 12px 0;}
+#AlignContentButton.shown {inset: 44px auto auto -40px}
 #HomepageSubMenu.active {opacity: 1}
 
 
@@ -270,17 +284,17 @@ iframe {
   filter: invert(100%);
   user-select: none;
   position: absolute;
-  height: 24px;
+  height: 36px;
   border-radius: 0 0 12px 12px;
   margin-left: var(--HomepageMainMenu-width);
-  padding: 8px;
-  padding-top: 16px;
+  padding: 2px;
+  padding-top: 10px;
   background-color: rgba(135, 135, 135, 0.5);
   transition: var(--ToHomepageButton-transition), margin-left 260ms ease-out 360ms, border-radius 160ms ease-out 360ms;
 }
 #ToHomepageButton:hover {
   cursor: pointer;
-  height: 28px;
+  height: 40px;
 }
 
 #SubMenuHeader {
@@ -293,20 +307,39 @@ iframe {
   width: var(--sidebar-width);
   position: absolute;
   inset: auto auto auto 100%;
-  transition: var(--SubMenuHeader-transition);
+  transition: var(--SubMenuHeader-transition), var(--Content-alignment-transition);
+}
+#content-container {
+  color: black;
+  height: 100%;
+  width: var(--Content-align-sidebar-width);
+  position: absolute;
+  inset: auto auto auto 100%;
+  box-shadow: 0 0 8px 4px;
+  transition: var(--Content-transition), var(--Content-alignment-transition);
 }
 .Content {
   background-color: white;
   color: black;
   height: 100%;
-  width: var(--Content-width);
-  position: absolute;
-  inset: auto auto auto 100%;
-  transition: var(--Content-transition);
+  width: 100%;
 }
 .ProjectPage {
   height: 100%;
   padding: 16px;
+}
+#AlignContentButton {
+  filter: invert();
+  user-select: none;
+  position: absolute;
+  height: 36px;
+  padding: 2px;
+  border-radius: 12px 0 0 12px;
+  background-color: #bbbbbb;
+  transition: var(--AlignContentButton-transition);
+}
+#AlignContentButton:hover {
+  cursor: pointer;
 }
 
 #Homepage > .about-me {

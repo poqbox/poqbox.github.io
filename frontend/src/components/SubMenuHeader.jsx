@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 
-export default function SubMenuHeader({ActiveMenu, CurrentPage=true}) {
+export default function SubMenuHeader({ActiveMenu, CurrentPage=true, ContentAlignment=null}) {
   const [ClassNames, setClassNames] = useState("")
 
 
@@ -17,7 +17,7 @@ export default function SubMenuHeader({ActiveMenu, CurrentPage=true}) {
 
   // return the React component
   return (
-    <div id="SubMenuHeader" className={ClassNames}>
+    <div id="SubMenuHeader" className={`${ClassNames} ${ContentAlignment}`}>
       {ActiveMenu ? ActiveMenu.toUpperCase() : ""}
     </div>
   )
