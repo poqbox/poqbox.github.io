@@ -1,32 +1,31 @@
-import { useState, useEffect } from "react"
+import { useEffect, useRef } from "react"
 import TypedText from "./TypedText"
 
 
 export default function HomepageHeader({CurrentPage=null, obscur=false, begin_animation=true, setNextAnimationState=null}) {
-  const [ClassNames, setClassNames] = useState(null)
-  const [Style, setStyle] = useState(null)
+  const headerRef = useRef(null)
 
 
   // useEffect for obscuring the component
   useEffect(() => {
     if (obscur)
-      setStyle({filter: "blur(2px)"})
+      headerRef.current.classList.add("obscur")
     else
-      setStyle(null)
+      headerRef.current.classList.remove("obscur")
   }, [obscur])
 
   // useEffect for the component's hiding animation
   useEffect(() => {
     if (CurrentPage)
-      setClassNames("hidden")
+      headerRef.current.classList.add("hidden")
     else
-      setClassNames(null)
+      headerRef.current.classList.remove("hidden")
   }, [CurrentPage])
 
 
   // return the React component
   return (
-    <header id="HomepageHeader" className={ClassNames} style={Style}>
+    <header id="HomepageHeader" ref={headerRef}>
       <TypedText
         className="title"
         text="Hi, I'm Kevin"

@@ -1,6 +1,7 @@
 :root {
   --Homepage-max-width: 1280px;
   --Homepage-padding: 10px;
+  --HomepageHeader-font-size: 80px;
   --HomepageMainMenu-width: 200px;
   --HomepageSubMenu-min-height: 12em;
   --HomepageSubMenu-max-height: 20em;
@@ -32,6 +33,12 @@
   --HomepageHeader-toHidden-transition: inset 344ms ease-out 260ms;
   --HomepageNavBar-toSidebar-transition: inset 260ms ease-out 360ms;
   --HomepageFooter-toSidebar-transition: inset 592ms ease-out 40ms;
+}
+#HomepageHeader.obscur {
+  filter: blur(2px);
+  font-size: calc(var(--HomepageHeader-font-size) - 2px);
+  margin: 2px 6px;
+  transition: var(--HomepageHeader-transition), filter 1000ms ease-out, font-size 1000ms ease-out, margin 1000ms ease-out;
 }
 #HomepageHeader.hidden {
   inset: auto auto auto calc(var(--HomepageHeader-width) * -1);
@@ -149,9 +156,9 @@ iframe {
   position: absolute;
   inset: auto auto auto var(--w-offset);
   width: var(--HomepageHeader-width);
-  font-size: 80px;
+  font-size: var(--HomepageHeader-font-size);
   font-weight: bold;
-  transition: filter 480ms ease-out 80ms, var(--HomepageHeader-transition);
+  transition: var(--HomepageHeader-transition), filter 200ms ease-out, font-size 200ms ease-out, margin 200ms ease-out;
 }
 #HomepageNavBar {
   position: absolute;
