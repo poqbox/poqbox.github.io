@@ -13,7 +13,6 @@
   --w-offset: max( calc((100vw - var(--Homepage-max-width)) / 2) , var(--Homepage-padding));
   --HomepageHeader-width: min( 520px, calc(100% - 2 * var(--Homepage-padding)) );
   --HomepageSubMenu-width: calc(var(--sidebar-width) - var(--HomepageSubMenu-x-padding) * 2);
-  --HomepageHeader-right: calc(var(--w-offset) + var(--HomepageHeader-width) + var(--Homepage-padding));
   --sidebar-offset: calc(var(--HomepageMainMenu-width) * -1);
   --Content-align-sidebar-width: calc(100vw - var(--sidebar-width));
   --Content-align-left-width: calc(100vw - var(--Content-alignment-offset));
@@ -35,7 +34,7 @@
   --HomepageFooter-toSidebar-transition: inset 592ms ease-out 40ms;
 }
 #HomepageHeader.hidden {
-  inset: auto var(--HomepageHeader-right) auto auto;
+  inset: auto auto auto calc(var(--HomepageHeader-width) * -1);
   transition: var(--HomepageHeader-toHidden-transition);
 }
 #HomepageNavBar.sidebar {
@@ -147,8 +146,8 @@ iframe {
 
 #HomepageHeader {
   font-family: Helvetica, Arial, sans-serif;
-  position: relative;
-  inset: auto 0 auto auto;
+  position: absolute;
+  inset: auto auto auto var(--w-offset);
   width: var(--HomepageHeader-width);
   font-size: 80px;
   font-weight: bold;
@@ -338,10 +337,6 @@ iframe {
 }
 #AlignContentButton:hover {
   cursor: pointer;
-}
-
-#Homepage > .about-me {
-  height: 100px;
 }
 
 .footer-links {
