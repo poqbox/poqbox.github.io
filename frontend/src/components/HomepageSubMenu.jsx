@@ -5,9 +5,17 @@ import ToHomepageButton from "./ToHomepageButton"
 import ObfuscatedText from "./ObfuscatedText"
 
 
-export default function HomepageSubMenu({CurrentMenu=null, CurrentPage=null, setCurrentPage=null}) {
+export default function HomepageSubMenu({CurrentMenu=null, CurrentPage=null, setCurrentPage=null, loadComponent=true}) {
   const [ClassNames, setClassNames] = useState(null)
   const [MenuList, setMenuList] = useState([])
+  const [Style, setStyle] = useState({opacity: 0})  // hide the transition animations of all nested components
+
+
+  // initial useEffect
+  useEffect(() => {
+    if (loadComponent)
+      setStyle(null)  // unhide the component
+  }, [loadComponent])
 
 
   // useEffect for the component's transition animation
@@ -86,7 +94,7 @@ export default function HomepageSubMenu({CurrentMenu=null, CurrentPage=null, set
 
   // return the React component
   return (
-    <div id="submenu-container" className={ClassNames}>
+    <div id="submenu-container" className={ClassNames} style={Style}>
       <SubMenuBackground CurrentMenu={CurrentMenu} CurrentPage={CurrentPage} />
       <div id="HomepageSubMenu">
         {(CurrentMenu)

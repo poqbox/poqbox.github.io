@@ -80,7 +80,7 @@ export default function App() {
         begin_animation={KeyStates[0].KeyState}
         setNextAnimationState={KeyStates[1].setKeyState}
       />
-      <HomepageSubMenu CurrentMenu={ActiveMenu} CurrentPage={CurrentPage} setCurrentPage={setCurrentPage} />
+      <HomepageSubMenu CurrentMenu={ActiveMenu} CurrentPage={CurrentPage} setCurrentPage={setCurrentPage} loadComponent={KeyStates[1].KeyState} />
       <HomepageNavBar CurrentPage={CurrentPage}>
         <HomepageMainMenu ActiveMenu={ActiveMenu}>
           <HomepageNavItem
